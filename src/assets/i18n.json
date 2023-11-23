@@ -1,0 +1,1134 @@
+{
+  "header": {
+    "instruction": {
+      "Zh": "報名說明",
+      "En": "Application Instruction"
+    },
+    "instruction_download": {
+      "Zh": "下載入托計畫文件",
+      "En": "Download Instruction"
+    },
+    "template_sample": {
+      "Zh": "模板及範本",
+      "En": "Document Template and Samples"
+    },
+    "my_application": {
+      "Zh": "我的報名",
+      "En": "My Application"
+    },
+    "application_management": {
+      "Zh": "報名管理",
+      "En": "Application Management"
+    },
+    "enrollment_management": {
+      "Zh": "入退托管理",
+      "En": "Enrollment Management"
+    },
+    "daycare_management": {
+      "Zh": "公托資訊管理",
+      "En": "Daycare Info Management"
+    },
+    "system_setting": {
+      "Zh": "系統設定",
+      "En": "System Settings"
+    },
+    "account_setting": {
+      "Zh": "帳號設定",
+      "En": "Account Settings"
+    },
+    "logout": {
+      "Zh": "登出",
+      "En": "Logout"
+    },
+    "language": {
+      "Zh": "語言選擇",
+      "En": "Language"
+    }
+  },
+  "button": {
+    "go_to_platform": {
+      "Zh": "公托報名平台",
+      "En": "Daycare Application Platform"
+    },
+    "see_waitlist": {
+      "Zh": "查看候補名單",
+      "En": "See Waitlist"
+    },
+    "facebook": {
+      "Zh": "Facebook 粉絲專頁",
+      "En": "Facebook Page"
+    },
+    "remember_me": {
+      "Zh": "記住我的帳號",
+      "En": "Remember Me"
+    },
+    "forgot_password": {
+      "Zh": "忘記密碼",
+      "En": "Forgot Password"
+    },
+    "login": {
+      "Zh": "登入",
+      "En": "Login"
+    },
+    "signup": {
+      "Zh": "註冊新帳號",
+      "En": "Create Account"
+    },
+    "already_have_account": {
+      "Zh": "已經有帳號了嗎？點此登入",
+      "En": "Already have an account? Login here."
+    },
+    "reset_password": {
+      "Zh": "重設密碼",
+      "En": "Reset Password"
+    },
+    "cancel": {
+      "Zh": "取消",
+      "En": "Cancel"
+    },
+    "start_application": {
+      "Zh": "開始報名",
+      "En": "Start Application"
+    },
+    "delete_draft": {
+      "Zh": "刪除草稿",
+      "En": "Delete Draft"
+    },
+    "save_draft": {
+      "Zh": "暫存草稿",
+      "En": "Save Draft"
+    },
+    "add_infant": {
+      "Zh": "Add Other Daycares",
+      "En": "Add Infant from Same Birth"
+    },
+    "next_step": {
+      "Zh": "下一步",
+      "En": "Next Step"
+    },
+    "previous_step": {
+      "Zh": "上一步",
+      "En": "Previous Step"
+    },
+    "submit": {
+      "Zh": "確認送出",
+      "En": "Submit"
+    },
+    "see_document_instruction": {
+      "Zh": "點此查看文件申請方式",
+      "En": "See how to obtain this document"
+    },
+    "add_contact": {
+      "Zh": "新增其他聯絡人",
+      "En": "Add Other Contacts"
+    },
+    "edit": {
+      "Zh": "編輯",
+      "En": "Edit"
+    },
+    "select": {
+      "Zh": "選擇",
+      "En": "Select"
+    },
+    "see_more": {
+      "Zh": "查看更多公托資訊",
+      "En": "See More Daycare Details"
+    },
+    "preview": {
+      "Zh": "檢視文件",
+      "En": "Preview"
+    },
+    "return_application": {
+      "Zh": "資料需更改，退回報名",
+      "En": "Return Application"
+    },
+    "approve_application": {
+      "Zh": "已確認資料，受理報名",
+      "En": "Approve Application"
+    },
+    "previous_page": {
+      "Zh": "上一頁",
+      "En": "Previous Page"
+    },
+    "next_page": {
+      "Zh": "下一頁",
+      "En": "Next Page"
+    },
+    "get_online": {
+      "Zh": "線上申請、線上下載 PDF",
+      "En": "Get Documents Online"
+    },
+    "get_inperson": {
+      "Zh": "臨櫃申請、臨櫃領取",
+      "En": "Get Documents In Person"
+    },
+    "accept": {
+      "Zh": "通知錄取",
+      "En": "Accept"
+    },
+    "reject_from_waitlist": {
+      "Zh": "從候補移除",
+      "En": "Remove From Waitlist"
+    },
+    "enroll": {
+      "Zh": "確認入托",
+      "En": "Enroll"
+    },
+    "return_registration": {
+      "Zh": "資料需更改，退回資料",
+      "En": "Return Registration"
+    },
+    "reject_from_acceptance": {
+      "Zh": "從錄取移除",
+      "En": "Reject"
+    },
+    "confirm": {
+      "Zh": "確認",
+      "En": "Comfirm"
+    },
+    "add_daycare": {
+      "Zh": "新增其他公托",
+      "En": "Add Other Daycares"
+    }
+  },
+  "map": {
+    "show": {
+      "Zh": "顯示",
+      "En": "Filter"
+    }
+  },
+  "user": {
+    "email": {
+      "Zh": "電子信箱",
+      "En": "Email"
+    },
+    "password": {
+      "Zh": "密碼",
+      "En": "Password"
+    },
+    "name": {
+      "Zh": "姓名",
+      "En": "Full Name"
+    },
+    "reenter_password": {
+      "Zh": "再次輸入密碼",
+      "En": "Re-enter Password"
+    }
+  },
+  "input": {
+    "consent_1": {
+      "Zh": "我確認本次報名公托的嬰幼兒設籍於台中市，且滿２足月至２歲。",
+      "En": "The infant(s) applying for public daycares is/are residents of Taichung City and is older than 2 months old."
+    },
+    "consent_2": {
+      "Zh": "我確認嬰幼兒的父母或監護人，其中一方設籍於台中市。",
+      "En": "One of the parents/guardiens of infant(s) is a resident of Taichung City."
+    },
+    "consent_3": {
+      "Zh": "我確認最近一年家庭綜合所得淨額在121萬元以下（經稅捐稽徵機關核定綜合所得稅未達20%）",
+      "En": "The Net Consolidated Income of the family is less than 1,210,000 NTD. (The income tax bracket is lower than 20%)"
+    },
+    "applicant_name": {
+      "Zh": "申請人姓名",
+      "En": "Applicant's Full Name"
+    },
+    "infant_relationship": {
+      "Zh": "與幼兒關係",
+      "En": "Relationship with Infant"
+    },
+    "phone": {
+      "Zh": "聯絡電話",
+      "En": "Contect Numbers"
+    },
+    "same_household": {
+      "Zh": "是否同住",
+      "En": "Do you live in the same household?"
+    },
+    "resident_address": {
+      "Zh": "戶籍地址",
+      "En": "Resident Address"
+    },
+    "mailing_address": {
+      "Zh": "通訊地址",
+      "En": "Mailing Address"
+    },
+    "single_or_multiple": {
+      "Zh": "是否為單胞胎",
+      "En": "Is the infant a singleton bitth?"
+    },
+    "infant_name": {
+      "Zh": "幼兒姓名",
+      "En": "Infant's Full Name"
+    },
+    "sex": {
+      "Zh": "生理性別",
+      "En": "Sex"
+    },
+    "roc_id": {
+      "Zh": "身分證字號",
+      "En": "ROC ID Number"
+    },
+    "birthdate": {
+      "Zh": "出生年月日",
+      "En": "Birth Date"
+    },
+    "medical_condition": {
+      "Zh": "是否有特殊疾病",
+      "En": "Been diagnosed with special medical condition(s)."
+    },
+    "identity": {
+      "Zh": "請選擇符合幼兒狀況的選項（可複選）",
+      "En": "Does the infant meet any of the following statuses?"
+    },
+    "contact_name": {
+      "Zh": "聯絡人姓名",
+      "En": "Contact Full Name"
+    },
+    "daycare_reserved_spot": {
+      "Zh": "您是否有回饋名額資格？",
+      "En": "Do you qualify for reserved spots?"
+    },
+    "public_reserved_spot": {
+      "Zh": "是否為此{{DaycareLocation}}設籍居民之嬰幼兒",
+      "En": "Is the infant a child of this {{DaycareLocation}}'s resident?"
+    },
+    "school_reserved_spot": {
+      "Zh": "是否為此{{DaycareLocation}}職員之嬰幼兒",
+      "En": "Is the infant a child of this {{DaycareLocation}}'s current employee?"
+    },
+    "employee_reserved_spot": {
+      "Zh": "是否為此公托現職員工之子女",
+      "En": "Is the infant a child of this daycare's current employee?"
+    },
+    "identities": {
+      "Zh": "身分資格",
+      "En": "Identity"
+    },
+    "submission_time": {
+      "Zh": "報名時間",
+      "En": "Submission Time"
+    },
+    "waitlist_order": {
+      "Zh": "候補順序",
+      "En": "Waitlist Order"
+    },
+    "infant_number": {
+      "Zh": "幼兒編號",
+      "En": "Infant Number"
+    },
+    "age": {
+      "Zh": "年齡",
+      "En": "Age"
+    },
+    "return_reason": {
+      "Zh": "退回原因",
+      "En": "Return Reason"
+    },
+    "accepted_date": {
+      "Zh": "通知錄取日",
+      "En": "Accepted Date"
+    },
+    "accept_deadline_date": {
+      "Zh": "回覆報到意願期限",
+      "En": "Accept Deadline"
+    },
+    "enroll_date": {
+      "Zh": "入托日期",
+      "En": "Enroll Date"
+    },
+    "draft_created_date": {
+      "Zh": "草稿建立日期",
+      "En": "Draft Created Date"
+    },
+    "draft_daycare_selection": {
+      "Zh": "草稿內已選擇的公托",
+      "En": "Daycare Selection in Draft"
+    },
+    "status": {
+      "Zh": "狀態",
+      "En": "Status"
+    }
+  },
+  "instructions": {
+    "email": {
+      "Zh": "請輸入Email",
+      "En": "Fill in your Email"
+    },
+    "name": {
+      "Zh": "請輸入全名",
+      "En": "Please provide full name"
+    },
+    "password": {
+      "Zh": "請輸入密碼",
+      "En": "Fill in a password"
+    },
+    "reenter_password": {
+      "Zh": "請重新輸入密碼",
+      "En": "Re-enter the password"
+    },
+    "id_name": {
+      "Zh": "請輸入與身分證明文件相符的完整姓名",
+      "En": "Enter the name on your ROC documents"
+    },
+    "infant_relationship": {
+      "Zh": "請輸入與幼兒關係",
+      "En": "State your relationship with infant."
+    },
+    "phone": {
+      "Zh": "請輸入電話號碼",
+      "En": "Enter your phone number."
+    },
+    "district": {
+      "Zh": "請選擇區域",
+      "En": "Choose district"
+    },
+    "address": {
+      "Zh": "請輸入地址",
+      "En": "Enter address"
+    },
+    "sex": {
+      "Zh": "請選擇生理性別",
+      "En": "Pick sex"
+    },
+    "roc_id": {
+      "Zh": "請輸入身分證號",
+      "En": "Enter ROC ID number"
+    },
+    "date": {
+      "Zh": "請選擇日期",
+      "En": "Choose date"
+    },
+    "document_x_1": {
+      "Zh": "為最近三個月申請之資料。",
+      "En": "Was obtained no longer than 3 months before date of submission."
+    },
+    "document_x_2": {
+      "Zh": "戶口名簿的記事欄為「詳記」版本的全戶戶籍資料。",
+      "En": "Has information of the entire household, and is the \"detailed description\" version."
+    },
+    "document_x_3": {
+      "Zh": "若為原住名身份，嬰幼兒的身分註記內需有原住名身分及族別內容。",
+      "En": "Has information of aboriginal status registration if applicable."
+    },
+    "document_x_4": {
+      "Zh": "若為多份戶籍謄本，請合併成一份文件上傳。",
+      "En": "When submitting multiple household registration, consolidate them into one single file."
+    },
+    "document_y_1": {
+      "Zh": "為最近一年之資料",
+      "En": "Was obtained no longer than 1 year before date of submission."
+    },
+    "document_a_1": {
+      "Zh": "若您是社會住宅住戶，請上傳有效期限內的租賃契約書。",
+      "En": null
+    },
+    "document_a_2": {
+      "Zh": "若您是設置公托場地之學校編制內教職員，請上傳學校教職員證明。",
+      "En": null
+    },
+    "document_c_1": {
+      "Zh": "請提供綜合評估報告書全卷影本、診斷證明書影本或身心障礙證明影本。",
+      "En": null
+    },
+    "document_c_2": {
+      "Zh": "請確保文件為正式文件。",
+      "En": null
+    },
+    "document_g_1": {
+      "Zh": "可提供合法收出養媒合服務者與收養人及出養人簽訂之試養契約等相關證明文件。",
+      "En": null
+    },
+    "document_g_2": {
+      "Zh": "可提供法院家事聲請狀（聲請認可收養)之證明文件，並輔以與被收養人同住一地址之證明（如戶口名簿）。",
+      "En": null
+    },
+    "document_g_3": {
+      "Zh": "若為親屬間收養或繼親收養，可提供具法院公函文書（如家事法庭通知）或村、里長證明等相關證明文件。",
+      "En": null
+    },
+    "document_h_1": {
+      "Zh": "報名公托日期需於在職期間。",
+      "En": null
+    },
+    "document_k_1": {
+      "Zh": "居留證需尚未過期。",
+      "En": "The expiration date has not yet passed."
+    },
+    "document_l_1": {
+      "Zh": "請確保為醫療機構之正式文件",
+      "En": null
+    },
+    "return_reason_explane": {
+      "Zh": "請說明退回報名的原因，方便申請人了解要怎麼修正。",
+      "En": null
+    }
+  },
+  "options": {
+    "yes": {
+      "Zh": "是",
+      "En": "Yes"
+    },
+    "no": {
+      "Zh": "否",
+      "En": "No"
+    },
+    "district400": {
+      "Zh": "400 中區",
+      "En": "400 Central District"
+    },
+    "district401": {
+      "Zh": "401 東區",
+      "En": "401 East District"
+    },
+    "district402": {
+      "Zh": "402 南區",
+      "En": "402 South District"
+    },
+    "district403": {
+      "Zh": "403 西區",
+      "En": "403 West District"
+    },
+    "district404": {
+      "Zh": "404 北區",
+      "En": "404 North District"
+    },
+    "district406": {
+      "Zh": "406 北屯區",
+      "En": "406 Beitun District"
+    },
+    "district407": {
+      "Zh": "407 西屯區",
+      "En": "407 Xitun District"
+    },
+    "district408": {
+      "Zh": "408 南屯區",
+      "En": "408 Nantun District"
+    },
+    "district411": {
+      "Zh": "411 太平區",
+      "En": "411 Taiping District"
+    },
+    "district412": {
+      "Zh": "412 大里區",
+      "En": "412 Dali District"
+    },
+    "district413": {
+      "Zh": "413 霧峰區",
+      "En": "413 Wufeng District"
+    },
+    "district414": {
+      "Zh": "414 烏日區",
+      "En": "414 Wuri District"
+    },
+    "district420": {
+      "Zh": "420 豐原區",
+      "En": "420 Fengyuan District"
+    },
+    "district421": {
+      "Zh": "421 后里區",
+      "En": "421 Houli District"
+    },
+    "district422": {
+      "Zh": "422 石岡區",
+      "En": "422 Shengang District"
+    },
+    "district423": {
+      "Zh": "423 東勢區",
+      "En": "423 Tanzi District"
+    },
+    "district424": {
+      "Zh": "424 和平區",
+      "En": "424 Heping District"
+    },
+    "district426": {
+      "Zh": "426 新社區",
+      "En": "426 Xinshe District"
+    },
+    "district427": {
+      "Zh": "427 潭子區",
+      "En": "427 Tanzi District"
+    },
+    "district428": {
+      "Zh": "428 大雅區",
+      "En": "428 Daya District"
+    },
+    "district429": {
+      "Zh": "429 神岡區",
+      "En": "429 Shengang District"
+    },
+    "district432": {
+      "Zh": "432 大肚區",
+      "En": "432 Dadu District"
+    },
+    "district433": {
+      "Zh": "433 沙鹿區",
+      "En": "433 Shalu District"
+    },
+    "district434": {
+      "Zh": "434 龍井區",
+      "En": "434 Longjing District"
+    },
+    "district435": {
+      "Zh": "435 梧棲區",
+      "En": "435 Wuqi District"
+    },
+    "district436": {
+      "Zh": "436 清水區",
+      "En": "436 Qingshui District"
+    },
+    "district437": {
+      "Zh": "437 大甲區",
+      "En": "437 Dajia District"
+    },
+    "district438": {
+      "Zh": "438 外埔區",
+      "En": "438 Waipu District"
+    },
+    "district439": {
+      "Zh": "439 大安區",
+      "En": "439 Daan District"
+    },
+    "same_address": {
+      "Zh": "與戶籍地址相同",
+      "En": "Same as resident address"
+    },
+    "different_address": {
+      "Zh": "與戶籍地址不同",
+      "En": "Different as resident address"
+    },
+    "single_birth": {
+      "Zh": "單胞胎",
+      "En": "Single Birth"
+    },
+    "multiple_birth": {
+      "Zh": "多胞胎",
+      "En": "Multiple Birth"
+    },
+    "male": {
+      "Zh": "男",
+      "En": "Male"
+    },
+    "female": {
+      "Zh": "女",
+      "En": "Female"
+    },
+    "same_applicant": {
+      "Zh": "與申請人相同",
+      "En": "Same as applicant"
+    },
+    "different_applicant": {
+      "Zh": "與申請人不同",
+      "En": "Different from applicant"
+    },
+    "disadvantage_family": {
+      "Zh": "弱勢家庭之嬰幼兒",
+      "En": "Infant from family of disadvantage"
+    },
+    "challenged": {
+      "Zh": "發展遲緩或持有身心障礙證明之嬰幼兒",
+      "En": "Infant that is developmental, phsically, or mentally challenged"
+    },
+    "aboriginal": {
+      "Zh": "具原住民身分之嬰幼兒",
+      "En": "Infant with aboriginal identity"
+    },
+    "under_age": {
+      "Zh": "未成年親職家庭之嬰幼兒",
+      "En": "Parents are not of age yet"
+    },
+    "big_family": {
+      "Zh": "父母戶內育有三名（含）以上子女家庭之嬰幼兒",
+      "En": "Has 3 or more sibilings within direct family"
+    },
+    "abdoption": {
+      "Zh": "試養階段之嬰幼兒",
+      "En": "In the process of abdoption"
+    },
+    "immigrant": {
+      "Zh": "監護人為單親一方尚未取得身分證的新住民",
+      "En": "Immigrant single parent who has not yet obtained Taiwanese National Identification."
+    },
+    "none": {
+      "Zh": "以上皆無",
+      "En": "None of above"
+    }
+  },
+  "daycare": {
+    "type_public": {
+      "Zh": "公設民營",
+      "En": "Public"
+    },
+    "type_semipublic": {
+      "Zh": "準公共",
+      "En": "Semipublic"
+    },
+    "type_private": {
+      "Zh": "私立",
+      "En": "private"
+    },
+    "currentwait": {
+      "Zh": "目前候補人數：",
+      "En": "Current Wait:"
+    },
+    "basic_info": {
+      "Zh": "基本資訊",
+      "En": "Basic Information"
+    },
+    "phone_number": {
+      "Zh": "聯絡電話",
+      "En": "Phone Number"
+    },
+    "address": {
+      "Zh": "地址",
+      "En": "Address"
+    },
+    "capacity": {
+      "Zh": "收托人數",
+      "En": "Capacity"
+    },
+    "operation_hours": {
+      "Zh": "收托時間",
+      "En": "Operation Hours"
+    },
+    "fee": {
+      "Zh": "每月平均收費總額",
+      "En": "Average Monthly Fee"
+    },
+    "estimated_completion": {
+      "Zh": "預計成立日期",
+      "En": "Estimated Completion"
+    }
+  },
+  "title": {
+    "waitlist": {
+      "Zh": "候補名單",
+      "En": "Waitlist"
+    },
+    "enrolled": {
+      "Zh": "入托名單",
+      "En": "Enrolled List"
+    },
+    "daycare_application": {
+      "Zh": "公托報名",
+      "En": "Daycare Application"
+    },
+    "daycare_selection": {
+      "Zh": "公托選擇",
+      "En": "Daycare Selection"
+    },
+    "other_contacts": {
+      "Zh": "其他聯絡人",
+      "En": "Other Contacts"
+    },
+    "basic_info": {
+      "Zh": "基本資料",
+      "En": "Basic Info"
+    },
+    "enroll_confirmation": {
+      "Zh": "報到確認",
+      "En": "Confirm Enrollment"
+    },
+    "application_approval": {
+      "Zh": "報名審查",
+      "En": "Application Approval"
+    },
+    "application_management": {
+      "Zh": "報名管理",
+      "En": "Application Management"
+    },
+    "infant_info": {
+      "Zh": "幼兒資料",
+      "En": "Infant Info"
+    },
+    "reset_password": {
+      "Zh": "忘記密碼",
+      "En": "Forgot Password"
+    },
+    "raffle_list": {
+      "Zh": "抽籤名單",
+      "En": "Raffle List"
+    },
+    "document_upload": {
+      "Zh": "文件上傳",
+      "En": "Document Upload"
+    },
+    "applicant_info": {
+      "Zh": "申請人資料",
+      "En": "Applicant Info"
+    },
+    "removed": {
+      "Zh": "移除名單",
+      "En": "Removed"
+    },
+    "removed_list": {
+      "Zh": "移除名單",
+      "En": "Removed List"
+    },
+    "create_account": {
+      "Zh": "註冊新帳號",
+      "En": "Create Account"
+    },
+    "info_summary": {
+      "Zh": "資料確認",
+      "En": "Summary"
+    },
+    "start_application": {
+      "Zh": "開始公托報名",
+      "En": "Start Application"
+    },
+    "forfeit": {
+      "Zh": "放棄入托名單",
+      "En": "Forfeit List"
+    },
+    "graduated": {
+      "Zh": "退托名單",
+      "En": "Graduated List"
+    },
+    "application_info": {
+      "Zh": "報名資料",
+      "En": "Application Info"
+    },
+    "approve_application": {
+      "Zh": "已確認資料，受理報名",
+      "En": "Approve Application"
+    },
+    "return_application": {
+      "Zh": "資料需更改，退回報名",
+      "En": "Return Application"
+    },
+    "enrollment_management": {
+      "Zh": "入退托管理",
+      "En": "Enrollment Management"
+    },
+    "individual_application": {
+      "Zh": "報名資料｜{{InfantName}}",
+      "En": "Application｜{{InfantName}}"
+    },
+    "my_applications": {
+      "Zh": "我的報名",
+      "En": "My Applications"
+    },
+    "draft": {
+      "Zh": "草稿",
+      "En": "Drafts"
+    },
+    "submitted": {
+      "Zh": "已送出",
+      "En": "Submited Applications"
+    },
+    "document_templates": {
+      "Zh": "文件模板",
+      "En": "Document Templates"
+    },
+    "document_samples": {
+      "Zh": "報名證明文件範本",
+      "En": "Document Samples"
+    },
+    "daycare_info": {
+      "Zh": "公托資訊",
+      "En": "Daycare Info"
+    },
+    "registration_documents": {
+      "Zh": "報到文件管理",
+      "En": "Registration Documents"
+    },
+    "permission_management": {
+      "Zh": "權限管理",
+      "En": "Permission Management"
+    },
+    "infant_applications": {
+      "Zh": "{{infantName}}（幼兒編號：{infantUniqueID}）",
+      "En": "{{infantName}}（Infant Number：{infantUniqueID}）"
+    }
+  },
+  "helptip": {
+    "fee_details": {
+      "Zh": "詳情請見收退費參考表。",
+      "En": "See fee details."
+    },
+    "consent_1": {
+      "Zh": "法院裁定收養認可前(試養階段)，準收養人設籍本市，該收養童得不受設籍限制。",
+      "En": "Infants in the adpption process does not need to meet this requirement."
+    },
+    "consent_2": {
+      "Zh": "單親一方為尚未取得國民身分證之新住民，不在此限。",
+      "En": "Single immigrant parent that has not yet obtained ROC citizenship do not need to meet this requirement."
+    },
+    "phone": {
+      "Zh": "可填手機號碼或市話號碼。",
+      "En": "You may use either cell phone number or land phone number."
+    },
+    "medical_condition": {
+      "Zh": "調查特殊疾病是為了讓公托掌握幼兒狀態，結果將不影響抽籤/候補資格。特殊疾病定義依福利部國健署公告罕見疾病名單為準。",
+      "En": "We are surveying medical condition in order to understand better your infant's situation. It will not impact the results of raffling or waitlist."
+    },
+    "identity": {
+      "Zh": "各身分資格有不同的收托/候補順序。詳細原則請參考「臺中市政府社會局公設民營托嬰中心及社區公共托育家園收托計畫」",
+      "En": "Your identity will impact the priorities of raffling and waitlist. Please refer to Taichung City Hall's Public Daycare Instruction document for detailed information."
+    },
+    "daycare_reserved_spot": {
+      "Zh": "若您符合回饋名額資格，將可以優先抽籤/候補。詳細原則請參考「臺中市政府社會局公設民營托嬰中心及社區公共托育家園收托計畫」。",
+      "En": "If you are qulified for reserved spots, you will have priority raffling or in waitlist."
+    },
+    "enter_order": {
+      "Zh": "若報名抽籤，屆時可決定要同一籤次登記或個別以獨立籤次。若候補，將以此收托順序安排候補順序。",
+      "En": "In the ocassion of raffling, you will be present with the options of raffling all infants at once or separately. In the occasion of getting on waitlists, infants will be put on the waitlist by the order you enter here."
+    }
+  },
+  "message": {
+    "404": {
+      "Zh": "喔喔～找不到這個頁面～",
+      "En": "Oh no! The page is missing!"
+    },
+    "verification_email_sent": {
+      "Zh": "驗證信已傳送",
+      "En": "Verification email was sent."
+    },
+    "check_email": {
+      "Zh": "請至信箱驗證email完成註冊",
+      "En": "Please check your email inbox for verification email."
+    },
+    "verification_success": {
+      "Zh": "驗證成功！",
+      "En": "Verfication Success!"
+    },
+    "redirecting": {
+      "Zh": "10秒後自動跳轉頁面",
+      "En": "Redirecting in 10 seconds..."
+    },
+    "password_url_sent": {
+      "Zh": "重設密碼連結已傳送",
+      "En": "A link to reset your password is sent to your email."
+    },
+    "reset_password_success": {
+      "Zh": "密碼重設成功",
+      "En": "Reset Password Success!"
+    },
+    "start_application_1": {
+      "Zh": "填寫基本資料",
+      "En": "Basic Information"
+    },
+    "start_application_2": {
+      "Zh": "填寫您和幼兒的基本資料，包含身分證字號、出生日期、地址、聯絡人等資訊。",
+      "En": "Fill in information recording you and the infant(s), including ROC ID number, birthdate, address, emergency contacts, etc."
+    },
+    "start_application_3": {
+      "Zh": "公托選擇",
+      "En": "Choose Daycare"
+    },
+    "start_application_4": {
+      "Zh": "一份報名可同時送往多間公托。",
+      "En": "You will have the options to choose multiple daycares in your application."
+    },
+    "start_application_5": {
+      "Zh": "上傳文件",
+      "En": "Upload Documents."
+    },
+    "start_application_6": {
+      "Zh": "除非特殊身分資格，所有報名皆需上傳戶籍謄本及綜合所得稅核定通知書。報名平台將依據您的狀況告知您所需的文件。",
+      "En": "Unless determined otherwise, you will need to upload Household Registration and Income Tax Assessment Notice to qualify for entering daycares. The system will navigate you through what you need to upload."
+    },
+    "start_application_7": {
+      "Zh": "送出",
+      "En": "Submit"
+    },
+    "start_application_8": {
+      "Zh": "報名審核後，將依照所申請的各公托狀況，安排抽籤或候補。",
+      "En": "After your application submission is approved, the application will be put into raffle or waitlist depending on what the daycare you apply to is accepting."
+    },
+    "can_pick_multiple": {
+      "Zh": "可複選。目前選擇公托間數：",
+      "En": "You may select multiple daycare. Currenlty you have selected:"
+    },
+    "make_sure": {
+      "Zh": "請確保資料符合以下規範：",
+      "En": "Please check that your documents fulfill the requrements as below:"
+    },
+    "status_submitted": {
+      "Zh": "目前報名狀態為「已送出報名，尚未通過審查」，請儘速確認資料受理報名。若報名資料不齊或有誤，可退回報名，請申請人修改後重新送出。",
+      "En": "The applcation status is \"submitted but not yet approved\". You may approve the application, or return the application if there are corrections that needs to be made."
+    },
+    "status_application_returned": {
+      "Zh": "目前報名狀態為「報名被退回」。待申請人更新資料，重新送出報名後，可重新審核報名。排入後補的時間戳記將以重新送出的時間點為主。",
+      "En": "The application status is \"Returned\". You will be able to approve the application again after the applicant edit and resubmit the application. The application will be put into the waitlist based on the timestamp it's resubmitted."
+    },
+    "status_waitlist_approved_1": {
+      "Zh": "目前報名狀態為「候補中」，且目前有空額，可通知錄取。一但通知錄取，申請人將需於 2 日內確認報到意願，並於通知錄取的7日後報到。",
+      "En": "The application status is \"in waitlist\". There are currently openings to accept this application. Once accepting the application, applicants will have to confirm registration within 2 days of acceptance, and enroll within 7 days of acceptance."
+    },
+    "status_waitlist_approved_other": {
+      "Zh": "目前報名狀態為「候補中」。若移除候補資格，系統將透過信件通知申請人，並把報名從候補清單中移除。",
+      "En": "The application status is \"in waitlist\"."
+    },
+    "status_withdrew": {
+      "Zh": "此報名已被撤回。若申請人欲重新報名，需於報名平台開始新的報名。",
+      "En": "This application status is \"withdrew\". Applicants will have to submit a new application if the would like to apply for daycares again."
+    },
+    "status_accepted": {
+      "Zh": "目前入托狀態為「尚未回覆報到意願」，系統將於回覆期限前每日寄送信件提醒。",
+      "En": "This application status is \"accepted but not registered yet\". Applicants will receive one reminder email every day until response deadline."
+    },
+    "status_registered": {
+      "Zh": "目前入托狀態為「已確認報到意願」，請檢查資料後確認入托。若資料有誤，可退回請求重填。若取消錄取資格，申請人欲重新報名時，將需重新候補。",
+      "En": "The registration's status is \"Registered\". You may approve the registration to enroll the infant, or return the registration if there are corrections that need to be made."
+    },
+    "status_registration_returned": {
+      "Zh": "目前入托狀態為「報到被退回」。待申請人更新資料，重新送出報名後，可重新審核報到。",
+      "En": "The registration's status is \"Returned\". You may approve the registration again after it is being resubmitted by the applicant."
+    },
+    "status_forfeit": {
+      "Zh": "目前入托狀態為「已放棄入托」。",
+      "En": "The application status is \"forfeited\""
+    },
+    "status_rejected": {
+      "Zh": "此報名不符合報名資格",
+      "En": "This application did not qualify for public daycares."
+    },
+    "application_approval_explain": {
+      "Zh": "可點選各報名資料查看詳細資訊，並審查成功送出的報名。",
+      "En": "Please click on each applications for detailed information, and approve submitted applications."
+    },
+    "application_waitlist_explain": {
+      "Zh": "可點選各報名資料查看詳細資訊，並在空額的人數限制下通知錄取。",
+      "En": "Please click on each applications for detailed information, and accept applications when there are openings."
+    },
+    "application_removed_explain": {
+      "Zh": "可點選各報名資料查看詳細資訊。",
+      "En": "Please click on each applications for detailed information."
+    },
+    "application_accepted_explain": {
+      "Zh": "此為已通知錄取的名單。可點選各幼兒查看詳細資訊，並確認報到資料。",
+      "En": "This is the list of infants that are accepted into the daycare. Click to see infant's detailed information and approve registrations."
+    },
+    "application_enrolled_explain": {
+      "Zh": "此為目前入托的幼兒名單。可點選各幼兒查看詳細資訊。若辦理退托，將會開啟空額，屆時可通知其他候補錄取。",
+      "En": "This is a list of currently enrolled infants. Click to see infant's detailed information. When graduating an infant, it will create openings to accept other infants into the daycare."
+    },
+    "application_forfeited_explain": {
+      "Zh": "此為放棄報到的幼兒名單。可點選各幼兒查看詳細資訊。",
+      "En": "This is a list of infants that forfeited their daycare acceptance. Click to see infant's detailed information."
+    },
+    "application_graduated_explain": {
+      "Zh": "此為已退托的幼兒名單。可點選各幼兒查看詳細資訊。",
+      "En": "This is a list of infants that have graduated. Click to see infant's detailed information."
+    },
+    "application_submitted_explain": {
+      "Zh": "目前報名狀態為「已送出報名，尚未通過審查」，請儘速確認資料受理報名。若報名資料不齊或有誤，可退回報名，請申請人修改後重新送出。排入後補的時間戳記將以重新送出的時間點為主。",
+      "En": "The application status is \"submitted but not yet approved\", please review application. You may approve the application, or return the application if there are corrections that needs to be made. If there were to be resubmission of the application, the submission time will be based on the resubmission time."
+    },
+    "approve_application_popup": {
+      "Zh": "申請人將收到報名成功通知，並被排入候補名單或抽籤名單。",
+      "En": "The applicant will recieve confirmation of application approval, and the application will be put into waitlist or raffle list."
+    },
+    "application_waitlist_approved_explain": {
+      "Zh": "目前報名狀態為「候補中」。若移除候補資格，系統將透過信件通知申請人，並把報名從候補清單中移除。",
+      "En": "The application status is \"in waitlist\". If an application is removed, the system will notify the applicant with email."
+    },
+    "hello": {
+      "Zh": "{{ApplicantName}}您好",
+      "En": "Hello, {{ApplicantName}}"
+    },
+    "my_applications": {
+      "Zh": "以下為您所有的報名。可編輯/刪除報名草稿，也可查看/撤回已送出的報名。",
+      "En": "These are all of your applications. You may edit, delete application drafts. You may also check and take back applications that are already submitted."
+    },
+    "my_applications_blank": {
+      "Zh": "還沒有任何報名資料",
+      "En": "You haven't started any applications yet."
+    }
+  },
+  "status": {
+    "submitted": {
+      "Zh": "已送出",
+      "En": "Submitted"
+    }
+  },
+  "identity": {
+    "A": {
+      "Zh": "回饋名額對象",
+      "En": "Reserved Spot Qualifiable"
+    },
+    "B": {
+      "Zh": "弱勢家庭",
+      "En": "Family of Disadvantage"
+    },
+    "C": {
+      "Zh": "發展遲緩或持有身心障礙證明",
+      "En": "Developmental, physically, or mentally challenged"
+    },
+    "D": {
+      "Zh": "原住民身分",
+      "En": "Aboriginal identity"
+    },
+    "E": {
+      "Zh": "未成年親職家庭",
+      "En": "Parents are not of age"
+    },
+    "F": {
+      "Zh": "父母戶內育有三名（含）以上子女家庭",
+      "En": "Has 3 or more siblings"
+    },
+    "G": {
+      "Zh": "試養階段嬰幼兒",
+      "En": "In adoption process"
+    },
+    "H": {
+      "Zh": "公托現職員工之子女",
+      "En": "daycare’s employee’s child"
+    },
+    "I": {
+      "Zh": "一般家庭：多胞胎",
+      "En": "General family with multiple birth children"
+    },
+    "J": {
+      "Zh": "一般家庭",
+      "En": "General family (with singleton child)"
+    },
+    "K": {
+      "Zh": "新住民單親",
+      "En": "Immigrant single parent"
+    },
+    "L": {
+      "Zh": "特殊疾病",
+      "En": "Special Medical Condition"
+    }
+  },
+  "document": {
+    "X": {
+      "Zh": "戶口名簿或戶籍謄本",
+      "En": "Household Registration"
+    },
+    "Y": {
+      "Zh": "綜合所得稅核定通知書",
+      "En": "Income Tax Assessment Notice"
+    },
+    "A": {
+      "Zh": "回饋名額身分證明文件",
+      "En": "Reserved Spot Qualitification Proof Document"
+    },
+    "B": {
+      "Zh": "弱勢家庭證明文件",
+      "En": "Family of disadvantage proof document"
+    },
+    "C": {
+      "Zh": "發展遲緩或持有身心障礙證明",
+      "En": "Developmental, phsically, or mentally challenged medical proof document"
+    },
+    "G": {
+      "Zh": "試養證明文件",
+      "En": "Adoption Document"
+    },
+    "H": {
+      "Zh": "公托員工在職證明",
+      "En": "Daycare Employment Proof"
+    },
+    "K": {
+      "Zh": "居留證",
+      "En": "Alien Resident Certificate"
+    },
+    "L": {
+      "Zh": "特殊疾病診斷證明",
+      "En": "Special Medical Condition Diagosis document"
+    }
+  }
+}

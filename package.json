@@ -1,0 +1,45 @@
+{
+  "name": "find-babycare-frontend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "pnpm run i18n:build && vite build",
+    "build:surge": "pnpm run i18n:build && vite build && cp dist/index.html dist/200.html",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "format_temp": "prettier --write ./",
+    "i18n:build": "node ./scripts/build-lang-files.js"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.16",
+    "@heroicons/vue": "^2.0.18",
+    "@vuepic/vue-datepicker": "^7.2.2",
+    "airtable": "^0.12.2",
+    "lodash.find": "^4.6.0",
+    "lodash.isempty": "^4.4.0",
+    "ol": "^8.1.0",
+    "pinia": "^2.1.7",
+    "vue": "^3.3.4",
+    "vue-i18n": "9",
+    "vue-router": "^4.2.5",
+    "vue3-easy-data-table": "^1.5.47"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.3.3",
+    "@types/lodash.find": "^4.6.9",
+    "@types/lodash.isempty": "^4.4.9",
+    "@vitejs/plugin-vue": "^4.4.0",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "postcss": "^8.4.31",
+    "postcss-nesting": "^12.0.1",
+    "postcss-preset-env": "^9.2.0",
+    "prettier": "^3.0.3",
+    "tailwindcss": "^3.3.5",
+    "vite": "^4.4.11"
+  }
+}

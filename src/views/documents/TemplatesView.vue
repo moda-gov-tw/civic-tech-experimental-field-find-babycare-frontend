@@ -1,0 +1,3 @@
+<template>
+  Templates View
+</template>

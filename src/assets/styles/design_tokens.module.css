@@ -1,0 +1,17 @@
+:root {
+  --bb-color-black: #111827;
+
+  --bb-color-gray-600: #565B66;
+  --bb-color-gray-400: #9CA3AF;
+  --bb-color-gray-200: #DEE0E3;
+  --bb-color-gray-50: #F8F8F8;
+
+  --bb-color-white: #FFFFFF;
+
+  --bb-color-orange-700: #C2410C;
+  --bb-color-orange-600: #EA580C;
+  --bb-color-orange-50: #FFF9F5;
+
+  --bb-color-error-red: #EF4444;
+  --bb-color-success-green: #75C29D;
+}

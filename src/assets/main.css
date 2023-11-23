@@ -1,0 +1,37 @@
+@import './styles/design_tokens.module.css';
+@import './base.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#app {
+  width:100%;
+  height: 100%;
+  color: var(--bb-color-gray-600);
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-link);
+  transition: 0.1s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    grid-template-columns: 1fr 1fr;
+  }
+}

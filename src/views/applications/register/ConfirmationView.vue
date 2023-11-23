@@ -1,0 +1,3 @@
+<template>
+  Confirmation View
+</template>

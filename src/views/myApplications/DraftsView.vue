@@ -1,0 +1,3 @@
+<template>
+  Drafts View
+</template>

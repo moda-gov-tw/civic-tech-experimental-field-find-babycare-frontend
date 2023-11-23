@@ -1,0 +1,3 @@
+<template>
+  Samples View
+</template>

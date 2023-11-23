@@ -1,0 +1,3 @@
+<template>
+  Submitted View
+</template>

@@ -1,0 +1,3 @@
+<template>
+  Forfeit View
+</template>

@@ -1,0 +1,3 @@
+<template>
+  Enroll View
+</template>
