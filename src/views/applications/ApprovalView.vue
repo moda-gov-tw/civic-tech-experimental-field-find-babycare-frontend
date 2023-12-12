@@ -8,27 +8,27 @@
       hide-footer
       table-class-name="customize-table"
       :headers="headers"
-      :items="applicants"
+      :items="applications"
       :rows-per-page="rowsPerPage"
       @click-row="showRow"
     />
     <TablePagination
-      v-if="applicants.length > rowsPerPage"
+      v-if="applications.length > rowsPerPage"
       :table-ref="dataTable"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, unref, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import BodyText from '../../components/BodyText.vue';
 import NormalTabs from '../../components/NormalTabs.vue';
 import TablePagination from '../../components/TablePagination.vue';
-
 // store
 import { useApplicationStore } from '../../stores/application';
 import { storeToRefs } from 'pinia';
+const store = useApplicationStore();
 
 defineProps({
   applicationID: {
@@ -38,21 +38,22 @@ defineProps({
 
 const rowsPerPage = ref(10);
 
-const store = useApplicationStore();
 const {
   tabsData,
-  applicants,
+  approvalData,
 } = storeToRefs(store);
 const { updateActiveTab } = store;
 
+const applications = unref(approvalData)
+
 const { t } = useI18n();
 
-const headers = [
+const headers = computed(() => [
   { text: t('input.infant_name'), value: 'infantName' },
   { text: t('input.applicant_name'), value: 'applicantName', sortable: true },
-  { text: t('input.identities'), value: 'identity', sortable: true },
-  { text: t('input.submission_time'), value: 'submissionTime', sortable: true },
-];
+  { text: t('input.identities'), value: 'identities', sortable: true },
+  { text: t('input.submission_time'), value: 'submissionDate', sortable: true },
+]);
 
 const dataTable = ref(); // $ref EasyDataTable template
 

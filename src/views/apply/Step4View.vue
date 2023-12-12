@@ -99,19 +99,19 @@ const allicationInfo = {
     },
       {
       title: t('input.phone'), // 聯絡電話
-      text: 'OOO',
+      text: '0943401956',
     },
       {
       title: t('input.same_household'), // 是否同住
-      text: 'OOO',
+      text: '是',
     },
     {
       title: t('input.resident_address'), // 戶籍地址
-      text: 'OOO',
+      text: '台中市崇德路三段146號11樓',
     },
     {
       title: t('input.mailing_address'), // 通訊地址
-      text: 'OOO',
+      text: '台中市崇德路三段146號11樓',
     },
   ],
 }
@@ -130,23 +130,23 @@ const infantInfo = {
     },
     {
       title: t('input.roc_id'), // 身分證字號
-      text: '男性',
+      text: 'A12345678',
     },
     {
       title: t('input.birthdate'), // 出生年月日
-      text: '男性',
+      text: '2023-04-30',
     },
     {
       title: t('input.resident_address'), //戶籍地址
-      text: '男性',
+      text: '台中市崇德路三段146號11樓',
     },
     {
       title: t('input.medical_condition'), // 是否有特殊疾病
-      text: '男性',
+      text: '無',
     },
     {
       title: t('input.identity'), // 身分資格
-      text: '男性',
+      text: '弱勢家庭',
     }
   ]
 };
@@ -183,6 +183,7 @@ const documentUpload = {
 }
 
 .navigation {
+  margin-top: 20px;
   width: 750px;
 }
 

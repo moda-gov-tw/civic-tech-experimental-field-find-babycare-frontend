@@ -6,7 +6,7 @@ import {
 } from '@headlessui/vue'
 import IconChevronDown from '../icons/IconChevronDown.vue';
 
-const props = defineProps({
+defineProps({
   label: {
     type: String,
     default: "",
@@ -19,13 +19,25 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  pageName: {
+  routeName: {
     type: String,
     default: '',
   },
-  query: {
+  routeParams: {
     type: Object,
     default: () => ({}),
+  },
+  routeQuery: {
+    type: Object,
+    default: () => ({}),
+  },
+  href: {
+    type: String,
+    default: '',
+  },
+  leadingIcon: {
+    type: Object,
+    default: null,
   },
 });
 </script>
@@ -45,7 +57,7 @@ const props = defineProps({
         <IconChevronDown
           :class="[
             open ? 'rotate-180' : '',
-            'h-5 w-5 flex-none focus:outline-none',
+            'h-5 w-5 flex-none focus:outline-none duration-300',
           ]"
           aria-hidden="true"
         />
@@ -57,12 +69,16 @@ const props = defineProps({
     </Disclosure>
 
     <!-- 非下拉式按鈕 -->
-    <RouterLink
+    <Component
       v-else
-      :to="{ name: pageName, query }"
-      class="cursor-pointer block rounded-lg px-6 py-3 leading-7 text-gray-600 hover:text-primary hover:bg-gray-50"
+      :is="routeName ? 'RouterLink' : 'a'"
+      :to="routeName ? { name: routeName, params: routeParams, query: routeQuery } : null"
+      :href="href"
+      class="block rounded-lg px-6 py-3 leading-7 text-gray-600 hover:text-primary hover:bg-gray-50 flex gap-3 items-center"
+      role="button"
     >
+      <Component v-if="leadingIcon" :is="leadingIcon" />
       {{ label }}
-    </RouterLink>
+    </Component>
   </div>
 </template>

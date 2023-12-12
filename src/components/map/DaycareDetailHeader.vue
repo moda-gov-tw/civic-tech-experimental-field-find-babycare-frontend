@@ -3,11 +3,13 @@
     <div class="flex-auto">
       <div :class="$style.type">{{ displayDaycareType }}</div>
       <div :class="$style.title">{{ daycareInfo.name }}</div>
-      <div v-if="daycareInfo.currentWait" :class="$style.info">
-        接受候補中 | {{ $t('daycare.currentwait') }}{{ daycareInfo.currentWait }}
+      <div :class="$style.statusText">
+        <span>{{ daycareInfo.status }}</span>
+        <span v-if="daycareInfo.currentWaitlistCount" :class="$style.gapBar">|</span>
+        <span v-if="daycareInfo.currentWaitlistCount" :class="$style.currentWait">{{ $t('daycare.currentwait') }}{{ daycareInfo.currentWaitlistCount }}</span>
       </div>
     </div>
-    <IconShare class="cursor-pointer" />
+    <IconShare :class="$style.shareIcon" />
   </div>
 </template>
 
@@ -57,7 +59,7 @@ const displayDaycareType = computed(() => {
   line-height: 32px; /* 177.778% */
 }
 
-.info {
+.statusText {
   color: var(--bb-color-gray-600);
 
   /* Webpage Text Styles/Additional Explanation */
@@ -66,5 +68,23 @@ const displayDaycareType = computed(() => {
   font-style: normal;
   font-weight: 400;
   line-height: 20px; /* 166.667% */
+
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.currentWait {
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: '';
+  }
+}
+
+.shareIcon {
+  cursor: pointer;
+  margin: 4px;
 }
 </style>

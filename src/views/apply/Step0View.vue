@@ -46,7 +46,7 @@ const handleClick = () => {
 
       <div>
         <h2 :class="$style.title">{{ $t('message.start_application_7') }}</h2>
-        <p>{{ $t('message.start_application_8') }}</p>
+         <p>{{ $t('message.start_application_8') }}</p>
       </div>
 
     </div>
@@ -98,6 +98,7 @@ const handleClick = () => {
 }
 
 .section {
+  margin-top:50px;
   width: 750px;
 }
 

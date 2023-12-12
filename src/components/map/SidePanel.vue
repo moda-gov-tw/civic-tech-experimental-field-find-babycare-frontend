@@ -9,7 +9,11 @@
       :class="$style.collapseButton"
       @click="$emit('toggle')"
     >
-      <IconChevronRight />
+      <IconChevronRight
+        :class="[
+          !isOpen && $style.iconReverse,
+        ]"
+      />
     </div>
     <div
       class="p-7"
@@ -74,6 +78,10 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.iconReverse {
+  transform: rotate(-180deg);
 }
 
 .contentScroller {

@@ -8,3 +8,11 @@
 <script setup>
 import MainTitle from '../../components/MainTitle.vue';
 </script>
+
+<style>
+.vue3-easy-data-table__body {
+  tr {
+    cursor: pointer;
+  }
+}
+</style>

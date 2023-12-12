@@ -1,11 +1,19 @@
 <script setup>
-
+import { ref, getCurrentInstance } from 'vue'
 import ToolTip from '@/components/form/ToolTip.vue'
+
+ const instance = getCurrentInstance() 
+ const uuid = ref(instance.uid)
+
 
 const props = defineProps({
   label: {
     type: String,
     required: false
+  },
+  returnBoolean:{ // modelValue should be true or false
+    type: Boolean,
+    required: false   
   },
   options: {
     type: Array,
@@ -13,7 +21,8 @@ const props = defineProps({
   },
   modelValue: {
     type: String,
-    required: true
+    required: true,
+    default: null
   },
   toolTipText: {
     type: String,
@@ -25,16 +34,16 @@ defineEmits(
   ['update:modelValue'],
 )
 
-console.log('ToolTipText', props.toolTipText)
-
 </script>
 
 <template>
-  <div class="grid gap-2">
+  <div class="grid gap-2 mb-3">
     <div class="flex">
       <!-- label -->
       
-      <label class="text-sm font-medium mr-2">{{ label }}</label>
+      <label
+        :for="uuid+option"
+        class="text-sm font-medium mr-2">{{ label }}</label>
 
       <ToolTip  
         v-if="toolTipText"
@@ -43,23 +52,26 @@ console.log('ToolTipText', props.toolTipText)
   
       <!-- radio -->
       <fieldset class="ml-2">
-        <div class="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
-          <div v-for="option in options" :key="option" class="flex items-center ml-4">
+        <div class="space-y-4 sm:flex sm:items-center sm:space-x-6 sm:space-y-0">
+          <div v-for="(option,i ) in options" :key="option" class="flex items-center ml-4">
 
+                    
             <!-- radio button -->
             <input
               class="w-4 h-4 accent-primary"
               type="radio" 
-              :checked="modelValue === option"  
-              :id="option" 
-              :value="option"
-              @change="$emit('update:modelValue', $event.target.value)"
+              :checked="returnBoolean ? modelValue === (i === 0) : (modelValue === option)" 
+              :id="uuid+option"
+              :value="returnBoolean ? (i===0) : option" 
+              :name="`group-${uuid}`"
+              @change="returnBoolean ? $emit('update:modelValue', $event.target.checked ? (i === 0) : null) : $emit('update:modelValue', $event.target.value)"
             />
 
             <!-- radio context -->
             <label 
               class="ml-3 block text-sm font-medium " 
-              :for="option" >
+              :for="uuid+option"
+              >
               {{ option }} 
             </label>
           </div>

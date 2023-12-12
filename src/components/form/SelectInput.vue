@@ -69,8 +69,8 @@ const selectOption = (option) => {
 
 <template>
 
-<div class="grid gap-2">
-  <label class="block text-sm font-medium leading-6">
+<div class="grid gap-2 mb-3">
+  <label v-if="label" class="block text-sm font-medium leading-6">
     {{ label }}
   </label>
 
@@ -83,10 +83,13 @@ const selectOption = (option) => {
     ]">
     
     <button 
-      :class="$style.button"
+      :class="[
+        $style.button,
+        !modelValue && $style.placeholder
+      ]"
       @click="toggleItems($event)"
     >
-        {{ modelValue === null ? placeholder : modelValue}}
+        {{ !modelValue  ? placeholder : modelValue}}
 
       <div :class="$style.arrow">
         <img src="../../components/icons/arrow-down.svg" alt="">
@@ -136,6 +139,10 @@ const selectOption = (option) => {
 
 .select.disabled {
   opacity: 0.3;
+}
+
+.placeholder {
+  opacity: 0.5;
 }
 
 .button {

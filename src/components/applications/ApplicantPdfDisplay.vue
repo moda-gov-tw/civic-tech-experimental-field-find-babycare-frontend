@@ -4,7 +4,7 @@
       <IconPaperClip />
       {{ title }}
     </div>
-    <TextLink :link="src" text="檢視文件" />
+    <TextLink :link="src" :text="$t('button.preview')" />
   </div>
 </template>
 

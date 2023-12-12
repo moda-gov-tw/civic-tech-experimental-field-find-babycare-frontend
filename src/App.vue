@@ -20,3 +20,9 @@ import AppMenu from './components/AppMenu.vue'
   background: var(--bb-color-white);
 }
 </style>
+
+<style>
+.vue3-easy-data-table__main {
+  min-height: auto !important;
+}
+</style>

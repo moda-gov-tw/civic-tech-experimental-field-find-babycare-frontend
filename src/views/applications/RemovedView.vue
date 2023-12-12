@@ -7,19 +7,19 @@
       hide-footer
       table-class-name="customize-table"
       :headers="headers"
-      :items="applicants"
+      :items="applications"
       :rows-per-page="rowsPerPage"
       @click-row="showRow"
     />
     <TablePagination
-      v-if="applicants.length > rowsPerPage"
+      v-if="applications.length > rowsPerPage"
       :table-ref="dataTable"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, unref, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import BodyText from '../../components/BodyText.vue';
 import NormalTabs from '../../components/NormalTabs.vue';
@@ -42,17 +42,19 @@ const rowsPerPage = ref(10);
 const store = useApplicationStore();
 const {
   tabsData,
-  applicants,
+  removedData,
 } = storeToRefs(store);
 const { updateActiveTab } = store;
 
-const headers = [
-  { text: t('input.infant_number'), value: 'id' },
+const applications = unref(removedData);
+
+const headers = computed(() => [
+  { text: t('input.infant_number'), value: 'infantId' },
   { text: t('input.infant_name'), value: 'infantName' },
-  { text: t('input.age'), value: 'age' },
-  { text: t('input.identities'), value: 'identity', sortable: true },
-  { text: t('input.submission_time'), value: 'submissionTime', sortable: true },
-];
+  { text: t('input.age'), value: 'infantAge' },
+  { text: t('input.identities'), value: 'identities', sortable: true },
+  { text: t('input.submission_time'), value: 'submissionDate', sortable: true },
+]);
 
 const dataTable = ref(); // $ref EasyDataTable template
 

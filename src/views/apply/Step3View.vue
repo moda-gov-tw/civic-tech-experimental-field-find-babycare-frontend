@@ -1,26 +1,49 @@
 
 <script setup>
 import router from '../../router/index.js';
-
+import { DOCUMENT, DOCUMENT_INSTRUCTION_TEXT, getDocumentsByIdentities } from '../../enums/documents'
+import DocumentOverlay from '../../components/apply/DocumentOverlay.vue'
 import NormalButton from '../../components/NormalButton.vue'
 import FileSelectField from '../../components/form/FileSelectField.vue'
 import Step from '../../components/NavigationStep.vue'
+import { useApplicationDetailStore } from '../../stores/applicationDetail';
+import { useOverlayStore } from '../../stores/documentOverlay';
 
 const handleClick = (step) => {
   if(step==='prev') router.push({ name: 'apply.step2' })
   if(step==='next') router.push({ name: 'apply.step4' })
 }
 
+const applicationDetailStore = useApplicationDetailStore();
+
+const { 
+  listInfantIdentities
+} = applicationDetailStore;
+
+
+const allIdentities = listInfantIdentities()
+
+const docRequirenment =  getDocumentsByIdentities(allIdentities)
+
+const documentsToUploads = docRequirenment.map(document => {
+  return {
+    i18Name: DOCUMENT[document],
+    descriptions: DOCUMENT_INSTRUCTION_TEXT[document]['explanationText'],
+    popupInstruction: DOCUMENT_INSTRUCTION_TEXT[document]['popupInstructionURL'],
+  }
+})
+
+const overlayStore = useOverlayStore();
+const { 
+  openOverlay,
+} = overlayStore;
+
 
 </script>
 
 
 <template>
-<!-- 外層容器 -->
 <div :class="$style.page" class="flex flex-col p-7  items-center justify-center">
-  <!-- 圖標容器 -->
-
-  <!-- 申請人資料  -->
 
   <div :class="$style.navigation">
     <Step
@@ -28,18 +51,24 @@ const handleClick = (step) => {
     />
   </div>
 
+  <div v-for="(document ,key) in documentsToUploads" :key="key" class="p-7 grid gap-6" > 
 
-  <div class="p-7 grid gap-6 "> 
-    
-     <h2 class="font-semibold">{{ $t('document.X') }}</h2>
+    <div class="flex">
+     <span :class="$style.instructionTitle">{{ $t(document['i18Name']) }}</span>
+     <a v-if="document['popupInstruction']"
+        :class="$style.instructionPopupText"
+        @click="openOverlay(document)"
+      >
+        點擊查看文件申請方式
+    </a>
+    </div>
 
-    <div :class="$style.instruction" class="p-7">
+    <div :class="$style.instructionDetail" class="p-7">
       <div>
         請確保資料符合以下規範：<br/>
-        ・為最近三個月申請之資料。<br/>
-        ・戶口名簿的記事欄為「詳記」版本的全戶戶籍資料。<br/>
-        ・若為原住名身份，嬰幼兒的身分註記內需有原住名身分及族別內容。<br/>
-        ・若為多份戶籍謄本，請合併成一份文件上傳。<br/>
+        <span v-for="(description,key) in document.descriptions" :key="key">
+          ・{{ $t(description) }}<br/>
+        </span>
       </div>
     </div>
 
@@ -47,23 +76,7 @@ const handleClick = (step) => {
 
   </div>
 
-  <div class="p-7 grid gap-6 "> 
-    
-    <h2 class="font-semibold">{{ $t('document.Y') }}</h2>
-
-    <div :class="$style.instruction" class="p-7">
-      <div>
-        請確保資料符合以下規範：<br/>
-        ・為最近三個月申請之資料。<br/>
-        ・戶口名簿的記事欄為「詳記」版本的全戶戶籍資料。<br/>
-        ・若為原住名身份，嬰幼兒的身分註記內需有原住名身分及族別內容。<br/>
-        ・若為多份戶籍謄本，請合併成一份文件上傳。<br/>
-      </div>
-    </div>
-
-    <FileSelectField/>
-
-  </div>
+  <DocumentOverlay/>
 
   <div
     :class="$style.bottom" 
@@ -91,17 +104,38 @@ const handleClick = (step) => {
   }
 }
 
-.bottom {
-  width: 750px;
+.instructionTitle {
+  color: #374151;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
 }
 
+.instructionPopupText {
+  color: var(--orange-orange-700, #C2410C);
+  text-align: right;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  margin-left: 10px;
+}
+
+.instructionPopupText:hover{
+  cursor: pointer;
+  text-decoration: none;
+}
 
 .navigation {
+  margin-top: 20px;
   width: 750px;
 }
 
 
-.instruction {
+.instructionDetail {
   width: 750px;
   background: var(--gray-gray-50, #F8F8F8);
 }

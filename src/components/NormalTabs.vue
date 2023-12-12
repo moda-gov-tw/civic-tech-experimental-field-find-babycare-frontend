@@ -35,7 +35,7 @@
           >
             {{ tab.name }}
             <span
-              v-if="tab.count"
+              v-if="tab.count > 0"
               :class="[
                 tab.current ? 'bg-indigo-100 text-indigo-600' : 'bg-gray-100 text-gray-900',
                 'hidden rounded-full p-1 px-3 text-xs font-medium md:inline-block',

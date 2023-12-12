@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import FilterCheckbox from './FilterCheckbox.vue';
 import { DAYCARE_TYPE } from '../../enums/daycare.js';
@@ -33,7 +33,7 @@ const store = useMapStore();
 const {
   selectedFilter,
 } = storeToRefs(store);
-const filterList = ref([
+const filterList = computed(() => [
   {
     id: DAYCARE_TYPE[0],
     label: t('daycare.type_public'),

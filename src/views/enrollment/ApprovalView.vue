@@ -8,26 +8,28 @@
       hide-footer
       table-class-name="customize-table"
       :headers="headers"
-      :items="applicants"
+      :items="approvalData"
       :rows-per-page="rowsPerPage"
       @click-row="showRow"
     />
     <TablePagination
-      v-if="applicants.length > rowsPerPage"
+      v-if="approvalData.length > rowsPerPage"
       :table-ref="dataTable"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import BodyText from '../../components/BodyText.vue';
 import NormalTabs from '../../components/NormalTabs.vue';
 import TablePagination from '../../components/TablePagination.vue';
-
+import { useI18n } from 'vue-i18n';
 // store
 import { useEnrollmentStore } from '../../stores/enrollment.js';
 import { storeToRefs } from 'pinia';
+
+const { t } = useI18n();
 
 defineProps({
   enrollmentID: {
@@ -40,19 +42,19 @@ const rowsPerPage = ref(10);
 const store = useEnrollmentStore();
 const {
   tabsData,
-  applicants,
+  approvalData,
 } = storeToRefs(store);
 const { updateActiveTab } = store;
 
-const headers = [
-  { text: '幼兒編號', value: 'id' },
-  { text: '幼兒姓名', value: 'infantName', sortable: true },
-  { text: '申請人姓名', value: 'applicantName', sortable: true },
-  { text: '身份資格', value: 'identity', sortable: true },
-  { text: '通知錄取日', value: 'notifyDate', sortable: true },
-  { text: '回覆報到意願期限', value: 'registrationDeadline', sortable: true },
-  { text: '報到日', value: 'checkInDate', sortable: true },
-];
+const headers = computed(() => [
+  { text: t('input.infant_number'), value: 'infantId' }, // 幼兒編號
+  { text: t('input.infant_name'), value: 'infantName', sortable: true }, // 幼兒姓名
+  { text: t('input.applicant_name'), value: 'applicantName', sortable: true }, // 申請人姓名
+  { text: t('input.identities'), value: 'identities', sortable: true }, // 身分資格
+  { text: t('input.accepted_date'), value: 'acceptedDate', sortable: true }, // 通知錄取日
+  { text: t('input.accept_deadline_date'), value: 'registerDeadline', sortable: true }, // 回覆報到意願期限
+  { text: t('input.enroll_date'), value: 'enrollDate', sortable: true }, // 入托日期
+]);
 
 const dataTable = ref(); // $ref EasyDataTable template
 

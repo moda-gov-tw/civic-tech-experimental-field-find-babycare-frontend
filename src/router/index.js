@@ -20,6 +20,11 @@ const router = createRouter({
           name: 'map',
           component: () => import('../views/MapView.vue'),
         },
+        {
+          path: 'logout',
+          name: 'logout',
+          component: () => import('../views/LogoutView.vue'),
+        },
         // 404
         {
           path: ':pathMatch(.*)*',
@@ -109,8 +114,8 @@ const router = createRouter({
         // 我的報名
         {
           path: 'my-applications',
-          name: 'myApplications',
-          component: () => import('../views/myApplications/MyApplicationsView.vue'),
+          name: 'myApplicationsBase',
+          component: () => import('../views/myApplications/BaseView.vue'),
             children: [
               {
                 path: 'drafts',
@@ -195,22 +200,7 @@ const router = createRouter({
           props: true,
           component: () => import('../views/applications/DetailView.vue'),
           children: [
-            {
-              path: 'enroll',
-              name: 'applications.detail.enroll',
-              component: () => import('../views/applications/EnrollView.vue'),
-            },
-            {
-              path: 'forfeit',
-              name: 'applications.detail.forfeit',
-              component: () => import('../views/applications/ForfeitView.vue'),
-            },
-            {
-              path: 'forfeit-success',
-              name: 'applications.detail.forfeitSuccess',
-              component: () => import('../views/applications/ForfeitSuccessView.vue'),
-            },
-            // 填寫報到意願
+            
             {
               path: 'register',
               name: 'applications.detail.register',
@@ -234,16 +224,36 @@ const router = createRouter({
                   name: 'applications.detail.register.step3',
                   component: () => import('../views/applications/register/Step3View.vue'),
                 },
-                // 報到成功
-                {
-                  path: 'confirmation',
-                  name: 'applications.detail.register.confirmation',
-                  component: () => import('../views/applications/register/ConfirmationView.vue'),
-                },
+
               ],
             },
           ],
         },
+        // 確認報到
+        {
+          path: 'applications/:applicationID/enroll',
+          name: 'applications.detail.enroll',
+          component: () => import('../views/applications/EnrollView.vue')
+        },
+        // 報到成功
+        {
+          path: 'applications/:applicationID/register/confirmation',
+          name: 'applications.detail.register.confirmation',
+          component: () => import('../views/applications/register/ConfirmationView.vue'),
+        },
+        // 放棄報到切結
+        {
+          path: 'applications/:applicationID/forfeit',
+          name: 'applications.detail.forfeit',
+          component: () => import('../views/applications/ForfeitView.vue'),
+        },
+        // 放棄成功
+        {
+          path: 'applications/:applicationID/forfeit-success',
+          name: 'applications.detail.forfeitSuccess',
+          component: () => import('../views/applications/ForfeitSuccessView.vue'),
+        },
+
         // 入退托管理
         {
           path: 'enrollment',
@@ -322,7 +332,12 @@ const router = createRouter({
         },
       ],
     },
+
   ],
+  scrollBehavior(to, from, savedPosition) {
+    // 总是滚动到顶部
+    return { top: 0 }
+  }
 })
 
 router.beforeEach(() => {

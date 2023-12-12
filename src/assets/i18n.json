@@ -43,6 +43,10 @@
     "language": {
       "Zh": "語言選擇",
       "En": "Language"
+    },
+    "about_platform": {
+      "Zh": "關於此平台",
+      "En": "About This Platform"
     }
   },
   "button": {
@@ -99,7 +103,7 @@
       "En": "Save Draft"
     },
     "add_infant": {
-      "Zh": "Add Other Daycares",
+      "Zh": "新增幼兒",
       "En": "Add Infant from Same Birth"
     },
     "next_step": {
@@ -189,6 +193,22 @@
     "add_daycare": {
       "Zh": "新增其他公托",
       "En": "Add Other Daycares"
+    },
+    "confirm_acceptance": {
+      "Zh": "確認報到",
+      "En": "Comfirm Acceptance"
+    },
+    "forfeit": {
+      "Zh": "放棄入托",
+      "En": "Forfeit"
+    },
+    "download_registration_document": {
+      "Zh": "下載報到相關文件",
+      "En": "Download Registration Documents"
+    },
+    "graduate": {
+      "Zh": "辦理退托",
+      "En": "Graduate This Student"
     }
   },
   "map": {
@@ -347,6 +367,22 @@
     "status": {
       "Zh": "狀態",
       "En": "Status"
+    },
+    "daycare": {
+      "Zh": "公托機構",
+      "En": "Daycare"
+    },
+    "forfeit_reason": {
+      "Zh": "放棄原因",
+      "En": "Forfeit Reason"
+    },
+    "graduate_reason": {
+      "Zh": "退托原因",
+      "En": "Graduate Reason"
+    },
+    "graduate_date": {
+      "Zh": "退托日期",
+      "En": "Graduate Date"
     }
   },
   "instructions": {
@@ -651,6 +687,38 @@
     "none": {
       "Zh": "以上皆無",
       "En": "None of above"
+    },
+    "already_somewhere_else": {
+      "Zh": "已入托其他托嬰中心或托育家園",
+      "En": "Already enrolled in other daycares."
+    },
+    "other": {
+      "Zh": "其他",
+      "En": "Other"
+    },
+    "forfeit_consent": {
+      "Zh": "我確認要放棄入托，並已了解送出後無法撤銷或更改。",
+      "En": null
+    },
+    "disadvantage_1": {
+      "Zh": "低收入戶",
+      "En": "Low income family"
+    },
+    "disadvantage_2": {
+      "Zh": "中低收入戶",
+      "En": "Mid-low income family"
+    },
+    "disadvantage_3": {
+      "Zh": "特殊境遇家庭",
+      "En": "Special condition family"
+    },
+    "disadvantage_4": {
+      "Zh": "脆弱家庭",
+      "En": "Fragile Family"
+    },
+    "disadvantage_5": {
+      "Zh": "經濟弱勢兒童及少年生活扶助家庭",
+      "En": "Qualified for Taichung city's economically disadvantaged support program."
     }
   },
   "daycare": {
@@ -777,8 +845,8 @@
       "En": "Start Application"
     },
     "forfeit": {
-      "Zh": "放棄入托名單",
-      "En": "Forfeit List"
+      "Zh": "放棄入托",
+      "En": "Forfeit Acceptance"
     },
     "graduated": {
       "Zh": "退托名單",
@@ -801,8 +869,8 @@
       "En": "Enrollment Management"
     },
     "individual_application": {
-      "Zh": "報名資料｜{{InfantName}}",
-      "En": "Application｜{{InfantName}}"
+      "Zh": "報名資料：{InfantName}",
+      "En": "Application：{InfantName}"
     },
     "my_applications": {
       "Zh": "我的報名",
@@ -837,8 +905,24 @@
       "En": "Permission Management"
     },
     "infant_applications": {
-      "Zh": "{{infantName}}（幼兒編號：{infantUniqueID}）",
-      "En": "{{infantName}}（Infant Number：{infantUniqueID}）"
+      "Zh": "{infantName}（幼兒編號：{infantUniqueID}）",
+      "En": "{infantName}（Infant Number：{infantUniqueID}）"
+    },
+    "acceptance_info": {
+      "Zh": "錄取資訊：{daycareName}",
+      "En": "Accpectance：{daycareName}"
+    },
+    "forfeit_acceptance": {
+      "Zh": "放棄報到切結： {daycareName}",
+      "En": "Forfeit Accpectance： {daycareName}"
+    },
+    "waitlist_title": {
+      "Zh": "候補名單：{daycareName}",
+      "En": "Waitlist：{daycareName}"
+    },
+    "registar_or_not": {
+      "Zh": "報到意願回覆",
+      "En": "Respond to Acceptance"
     }
   },
   "helptip": {
@@ -948,6 +1032,10 @@
       "Zh": "目前報名狀態為「已送出報名，尚未通過審查」，請儘速確認資料受理報名。若報名資料不齊或有誤，可退回報名，請申請人修改後重新送出。",
       "En": "The applcation status is \"submitted but not yet approved\". You may approve the application, or return the application if there are corrections that needs to be made."
     },
+    "status_raffle": {
+      "Zh": "目前報名狀態為「等待抽籤」。",
+      "En": "The application status is \"Waiting for Raffle\""
+    },
     "status_application_returned": {
       "Zh": "目前報名狀態為「報名被退回」。待申請人更新資料，重新送出報名後，可重新審核報名。排入後補的時間戳記將以重新送出的時間點為主。",
       "En": "The application status is \"Returned\". You will be able to approve the application again after the applicant edit and resubmit the application. The application will be put into the waitlist based on the timestamp it's resubmitted."
@@ -983,6 +1071,14 @@
     "status_rejected": {
       "Zh": "此報名不符合報名資格",
       "En": "This application did not qualify for public daycares."
+    },
+    "status_enrolled": {
+      "Zh": "此幼兒目前入托於此公托。",
+      "En": null
+    },
+    "status_graduated": {
+      "Zh": "此幼兒已退托。",
+      "En": null
     },
     "application_approval_explain": {
       "Zh": "可點選各報名資料查看詳細資訊，並審查成功送出的報名。",
@@ -1035,12 +1131,68 @@
     "my_applications_blank": {
       "Zh": "還沒有任何報名資料",
       "En": "You haven't started any applications yet."
+    },
+    "enroll_success": {
+      "Zh": "報到成功！",
+      "En": "Enrollment Success!"
+    },
+    "enroll_success_detail": {
+      "Zh": "請於{{EnrollDate}}到{{DaycareName}}報到，屆時需簽署報到文件，建議可事先印出簽署，亦可報到時於公托簽署。",
+      "En": "Please arrive at {{DaycareName}}on{{EnrollDate}}. You will need have to fill in registration documents. In order to speed up the process, we would highly recomend to print and sign all documents in advance. However, you will also have the option to do so in person at the daycare on the day of enrollment."
+    },
+    "no_wait": {
+      "Zh": "目前無人候補",
+      "En": "There is currently no wait on the waitlist."
     }
   },
   "status": {
     "submitted": {
-      "Zh": "已送出",
-      "En": "Submitted"
+      "Zh": "報名審核中",
+      "En": "Waiting for Application Approval"
+    },
+    "application_returned": {
+      "Zh": "報名被退回",
+      "En": "Application Returned"
+    },
+    "raffle_approved": {
+      "Zh": "等待抽籤",
+      "En": "Waiting for Raffle"
+    },
+    "waitlist_approved": {
+      "Zh": "候補中 （候補順序：{count}）",
+      "En": "Currently on waitlist No. {count}"
+    },
+    "withdrew": {
+      "Zh": "已撤回",
+      "En": "Withdrew"
+    },
+    "accepted": {
+      "Zh": "錄取，尚未確認入托",
+      "En": "Accepted, not yet confirmed"
+    },
+    "registered": {
+      "Zh": "報到審核中",
+      "En": "Waiting for Registration Approval"
+    },
+    "registration_returned": {
+      "Zh": "報到被退回",
+      "En": "Registration Returned"
+    },
+    "forfeited": {
+      "Zh": "放棄入托",
+      "En": "Forfeited"
+    },
+    "rejected": {
+      "Zh": "資格不符",
+      "En": "Rejected"
+    },
+    "enrolled": {
+      "Zh": "已入托",
+      "En": "Enrolled"
+    },
+    "graduated": {
+      "Zh": "已退托",
+      "En": "Graduated"
     }
   },
   "identity": {

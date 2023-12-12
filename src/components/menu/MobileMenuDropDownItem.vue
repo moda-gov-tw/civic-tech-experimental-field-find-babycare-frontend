@@ -3,7 +3,7 @@ import {
   DisclosureButton,
 } from '@headlessui/vue'
 
-const props = defineProps({
+defineProps({
   name: {
     type: String,
     default: '',
@@ -12,11 +12,15 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  pageName: {
+  routeName: {
     type: String,
     default: '',
   },
-  query: {
+  routeParams: {
+    type: Object,
+    default: () => ({}),
+  },
+  routeQuery: {
     type: Object,
     default: () => ({}),
   },
@@ -25,7 +29,12 @@ const props = defineProps({
 </script>
 
 <template>
-  <RouterLink :to="{ name: pageName, query }">
+  <Component
+    :is="routeName ? 'RouterLink' : 'a'"
+    :to="routeName ? { name: routeName, params: routeParams, query: routeQuery } : null"
+    :href="href"
+    role="button"
+  >
     <DisclosureButton
       :key="name"
        class="
@@ -33,5 +42,5 @@ const props = defineProps({
         block rounded-lg py-3 pl-8 pr-3 leading-7 text-gray-600 hover:text-primary hover:bg-gray-50">
       {{ name }}
     </DisclosureButton>
-  </RouterLink>
+  </Component>
 </template>

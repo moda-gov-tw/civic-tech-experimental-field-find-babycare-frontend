@@ -1,3 +1,3 @@
 <template>
-  Sample View
+  Logout
 </template>

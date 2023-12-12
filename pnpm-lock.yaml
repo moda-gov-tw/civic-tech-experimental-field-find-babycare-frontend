@@ -20,6 +20,9 @@ dependencies:
   lodash.find:
     specifier: ^4.6.0
     version: 4.6.0
+  lodash.findindex:
+    specifier: ^4.6.0
+    version: 4.6.0
   lodash.isempty:
     specifier: ^4.4.0
     version: 4.4.0
@@ -1891,6 +1894,10 @@ packages:
 
   /lodash.find@4.6.0:
     resolution: {integrity: sha512-yaRZoAV3Xq28F1iafWN1+a0rflOej93l1DQUejs3SZ41h2O9UJBoS9aueGjPDgAl4B6tPC0NuuchLKaDQQ3Isg==}
+    dev: false
+
+  /lodash.findindex@4.6.0:
+    resolution: {integrity: sha512-9er6Ccz6sEST3bHFtUrCFWk14nE8cdL/RoW1RRDV1BxqN3qsmsT56L14jhfctAqhVPVcdJw4MRxEaVoAK+JVvw==}
     dev: false
 
   /lodash.isempty@4.4.0:

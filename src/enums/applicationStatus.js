@@ -12,3 +12,16 @@ export const APPLICATION_STATUS = [
   'FORFEITED', // 8 放棄入托
   'REJECTED', // 9 不符合報名資格
 ];
+
+export const APPLICATION_STATUS_I18N = {
+  SUBMITTED: 'status.submitted',
+  APPLICATION_RETURNED: 'status.application_returned',
+  RAFFLE_APPROVED: 'status.raffle_approved',
+  WAITLIST_APPROVED: 'status.waitlist_approved',
+  WITHDREW: 'status.withdrew',
+  ACCEPTED: 'status.accepted',
+  REGISTERED: 'status.registered',
+  REGISTRATION_RETURNED: 'status.registration_returned',
+  FORFEITED: 'status.forfeited',
+  REJECTED: 'status.rejected',
+};

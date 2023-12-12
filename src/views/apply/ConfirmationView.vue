@@ -14,7 +14,7 @@ import FullButton from '../../components/FullButton.vue';
         <h1 class="font-bold">報名送出成功！</h1>
         <BodyText :text="'您申請的各公托將儘速審查您的報名，一但受理，將依照您這次送出報名的時間戳記安排候補，謝謝。'" />
       </div>
-      <RouterLink :to="{ name: 'apply.step0' }">
+      <RouterLink :to="{ name: 'myApplications.submitted' }">
         <FullButton :text="'回到我的報名'" />
       </RouterLink>
     </div>

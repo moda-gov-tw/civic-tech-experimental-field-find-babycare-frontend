@@ -41,14 +41,7 @@ import Point from 'ol/geom/Point';
 import { DAYCARE_TYPE } from '../../enums/daycare';
 import { useMapStore } from '../../stores/map.js';
 import { storeToRefs } from 'pinia';
-
-import LocationMarkerSemipublicUrl from '../../../src/components/icons/location-marker-semipublic.svg';
-import LocationMarkerSemipublicSelectedUrl from '../../../src/components/icons/location-marker-semipublic-selected.svg';
-import LocationMarkerPrivateUrl from '../../../src/components/icons/location-marker-private.svg';
-import LocationMarkerPrivateSelectedUrl from '../../../src/components/icons/location-marker-private-selected.svg';
-import LocationMarkerPublicUrl from '../../../src/components/icons/location-marker-public.svg';
-import LocationMarkerPublicSelectedUrl from '../../../src/components/icons/location-marker-public-selected.svg';
-import { mapData } from '../../api/daycare.js';
+import { daycares } from '../../api/daycare.js';
 
 const isDetailOpen = ref(false);
 const toggleDetail = () => {
@@ -58,7 +51,8 @@ const closeDetail = () => {
   isDetailOpen.value = false;
 };
 
-const daycareInfoListData = mapData.map(d => {
+// format data from API
+const daycareInfoListData = daycares.map(d => {
   const {
     daycare_name: name,
     Latitude,
@@ -71,6 +65,10 @@ const daycareInfoListData = mapData.map(d => {
     phone: phoneNumber,
     monthly_fee: fee,
     operation_hours: operationHours,
+    facebook_url: facebookUrl,
+    daycare_photo_url: daycarePhotoUrl,
+    status,
+    current_waitlist_count: currentWaitlistCount,
   } = d.fields;
   const coordinate = [Longitude, Latitude];
   const address = `${address_city}${address_district}${address_street}`;
@@ -84,50 +82,19 @@ const daycareInfoListData = mapData.map(d => {
     id: d.id,
     coordinate,
     daycareType: getDaycareType(type),
-    imageUrl: 'https://placehold.co/336x190', // TODO
+    daycarePhotoUrl,
     name,
-    currentWait: 0, // TODO
+    currentWaitlistCount,
     phoneNumber,
     address,
     capacity,
     operationHours,
     fee,
-    facebook: 'https://facebook.com', // TODO
+    facebookUrl,
+    status,
   };
 });
 console.log(daycareInfoListData);
-
-// TODO: call API to get real data
-// const daycareInfoListData = [
-//   {
-//     id: 'A0001',
-//     coordinate: [120.5268019, 24.2512537], // lng, lat
-//     daycareType: 0,
-//     imageUrl: 'https://placehold.co/336x190',
-//     name: '臺中市公設民營梧棲三民托嬰中心',
-//     currentWait: 16, // 目前候補人數
-//     phoneNumber: '09123123123', // 聯絡電話
-//     address: '臺中市地址', // 地址
-//     capacity: 20, // 收托人數
-//     operationHours: '一~五   8:00~18:00 延托最早自7:30，最晚至18:30', // 收托時間
-//     fee: 15000, // 每月平均收費總額
-//     facebook: 'https://facebook.com',
-//   },
-//   {
-//     id: 'A0002',
-//     coordinate: [120.5460794, 24.2486667],
-//     daycareType: 2,
-//     imageUrl: 'https://placehold.co/336x190',
-//     name: '臺中市私立小梧桐托嬰中心',
-//     currentWait: 16, // 目前候補人數
-//     phoneNumber: '09123123123', // 聯絡電話
-//     address: '臺北市地址', // 地址
-//     capacity: 20, // 收托人數
-//     operationHours: '一~五   8:00~18:00 延托最早自7:30，最晚至18:30', // 收托時間
-//     fee: 35000, // 每月平均收費總額
-//     facebook: 'https://facebook.com',
-//   },
-// ];
 
 const daycareInfoList = computed(() => {
   const result = DAYCARE_TYPE.reduce((acc, type) => {
@@ -141,29 +108,23 @@ const daycareInfoList = computed(() => {
   return result;
 });
 
-const getMarkerIconByDaycareType = (daycareType) => {
-  switch (daycareType) {
-    case 1:
-      return LocationMarkerSemipublicUrl;
-    case 2:
-      return LocationMarkerPrivateUrl;
-    case 0:
-    default:
-      return LocationMarkerPublicUrl;
-  }
-};
+const getMarkerIconColorByDaycareType = daycareType => {
+  if(daycareType === 0) return '#EA580C'; // public
+  if(daycareType === 1) return '#9A3412'; // semi-public
+  if(daycareType === 2) return '#374151'; // private
+  if(daycareType === 3) return '#9CA3AF'; // public (coming soon)
+  return 'white'; // default
+}
 
-const getSelectedMarkerIconByDaycareType = (daycareType) => {
-  switch (daycareType) {
-    case 1:
-      return LocationMarkerSemipublicSelectedUrl;
-    case 2:
-      return LocationMarkerPrivateSelectedUrl;
-    case 0:
-    default:
-      return LocationMarkerPublicSelectedUrl;
-  }
-};
+function changeFillColor(svgString, newColor) {
+    console.log(newColor);
+    return svgString.replace(/variable/g, `${newColor}`);
+}
+
+function svgToDataURL(svgString) {
+    return "data:image/svg+xml;base64," + btoa(svgString);
+}
+
 
 /**
  * @typedef {Object} DaycareInfo
@@ -177,24 +138,31 @@ const getSelectedMarkerIconByDaycareType = (daycareType) => {
  * @param {DaycareInfo} daycareInfo
  * @returns {Feature}
  */
+// svg's color property (fill, stroke) should be `white` by default
 const createDaycareFeature = daycareInfo => {
   const feature = new Feature({
     geometry: new Point(fromLonLat(daycareInfo.coordinate))
   })
   const { id, daycareType } = daycareInfo;
-
+  
   feature.setId(id);
   feature.set('daycareId', id);
   feature.set('daycareType', daycareType);
   feature.set('daycareInfo', daycareInfo);
+  // can't import from svg file
+  const locationMarkerSvg= '<svg id="Layer_1" data-name="Layer 1" width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.25 46.49"><defs><style>.cls-1{fill:#fff;}.cls-1,.cls-2{fill-rule:evenodd;}.cls-2{fill:variable;}</style></defs><path class="cls-1" d="M41.56,9.93a19.69,19.69,0,0,0-20.8-8.61,18.43,18.43,0,0,0-6.33,2.62,19.65,19.65,0,0,0-9,17.12,20.23,20.23,0,0,0,6.07,13.65l12,12a2.15,2.15,0,0,0,3,0L38.88,34.38a19.65,19.65,0,0,0,5.35-17.91A18.64,18.64,0,0,0,41.56,9.93Z" transform="translate(-5.37 -0.87)"/><path class="cls-2" d="M12.63,8.13A17.49,17.49,0,0,1,37.37,32.87L25,45.25,12.63,32.87A17.48,17.48,0,0,1,12.63,8.13ZM25,25.5a5,5,0,1,0-5-5A5,5,0,0,0,25,25.5Z" transform="translate(-5.37 -0.87)"/></svg>'
+  const color = getMarkerIconColorByDaycareType(daycareType)
+  const locationMarker = changeFillColor(locationMarkerSvg, color)
+
 
   const style = new Style({
     image: new Icon({
+      scale: 0.8,
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      src: getMarkerIconByDaycareType(daycareType),
-    })
+      src: svgToDataURL(locationMarker),
+    }),
   });
   feature.setStyle(style)
   return feature;
@@ -242,22 +210,31 @@ const openDaycareDetail = (feature) => {
 };
 
 function getOlMapInteractions() {
-  const selectedStyle = new Style({
-    zIndex: 100,
-    image: new Icon({
-      anchor: [0.5, 46],
-      anchorXUnits: 'fraction',
-      anchorYUnits: 'pixels',
-      src: getSelectedMarkerIconByDaycareType(0),
-    }),
-  });
+  const getStyle = (feature) => {
+    const daycareType = feature.get('daycareType');
+    // can't import from svg file
+    const locationSelectedMarkerSvg= '<svg id="Layer_1" data-name="Layer 1" width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.26 47.49"><defs><style>.cls-1{fill:#fff;}.cls-1,.cls-3{fill-rule:evenodd;}.cls-2,.cls-3{fill:variable;}</style></defs><path class="cls-1" d="M41.56,9.93a19.69,19.69,0,0,0-20.8-8.61,18.43,18.43,0,0,0-6.33,2.62,19.65,19.65,0,0,0-9,17.12,20.23,20.23,0,0,0,6.07,13.65l12,12a2.15,2.15,0,0,0,3,0L38.88,34.38a19.65,19.65,0,0,0,5.35-17.91A18.64,18.64,0,0,0,41.56,9.93Z" transform="translate(-4.87 -0.37)"/><path class="cls-2" d="M25,47.86a2.68,2.68,0,0,1-1.88-.77l-12-12a20.6,20.6,0,0,1-6.22-14A20.22,20.22,0,0,1,14.16,3.52,18.67,18.67,0,0,1,20.66.83,20.12,20.12,0,0,1,42,9.65a19,19,0,0,1,2.74,6.72,20,20,0,0,1-5.49,18.36L26.88,47.09A2.68,2.68,0,0,1,25,47.86ZM25,1.37a19.91,19.91,0,0,0-4.17.44A17.73,17.73,0,0,0,14.7,4.36,19.26,19.26,0,0,0,5.88,21a19.62,19.62,0,0,0,5.93,13.31l12,12a1.67,1.67,0,0,0,2.34,0L38.52,34a19.08,19.08,0,0,0,5.22-17.46,18.27,18.27,0,0,0-2.6-6.36h0A19.07,19.07,0,0,0,25,1.37Z" transform="translate(-4.87 -0.37)"/><path class="cls-3" d="M12.63,8.13A17.49,17.49,0,0,1,37.37,32.87L25,45.25,12.63,32.87A17.48,17.48,0,0,1,12.63,8.13ZM25,25.5a5,5,0,1,0-5-5A5,5,0,0,0,25,25.5Z" transform="translate(-4.87 -0.37)"/></svg>'
+    const color = getMarkerIconColorByDaycareType(daycareType)
+    const locationSelectedMarker = changeFillColor(locationSelectedMarkerSvg, color)
+      
+    return new Style({
+      zIndex: 100,
+      image: new Icon({
+        scale: 0.8,
+        anchor: [0.5, 46],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        src: svgToDataURL(locationSelectedMarker),
+      }),
+    });
+  }
   const select = new Select({
     wrapX: false,
-    style: selectedStyle,
+    style: getStyle,
   });
   const modify = new Modify({
     features: select.getFeatures(),
-    style: selectedStyle,
+    style: null, // Set style to null to use the default styling for modify interaction
   })
   return defaultInteractions().extend([select, modify]);
 }
@@ -288,7 +265,7 @@ onMounted(() => {
     target: 'olmap',
     layers: [tile],
     view: new View({
-      center: fromLonLat([120.5348712, 24.2495134]),
+      center: fromLonLat([120.6198330, 24.1772109]),
       zoom: 15, // Set an initial zoom level
     })
   });
@@ -307,7 +284,8 @@ onMounted(() => {
 
   DAYCARE_TYPE.forEach(type => {
     const vectorSource = createVectorLayer(type);
-    addFeaturesToVectorSource(vectorSource, createDaycareFeatures(unref(daycareInfoList)[type]));
+    const featureList = createDaycareFeatures(unref(daycareInfoList)[type]);
+    addFeaturesToVectorSource(vectorSource, featureList);
   });
 
   // handle feature click

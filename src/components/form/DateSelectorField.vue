@@ -19,7 +19,7 @@ const date = ref()
 </script>
 
 <template>
-  <div class="grid gap-2">
+  <div class="grid gap-2 mb-3">
     <label class="block text-sm font-medium leading-6">{{ label }}</label>
     <VueDatePicker 
       v-model="date"

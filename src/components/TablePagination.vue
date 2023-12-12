@@ -187,7 +187,7 @@ const updateRowsPerPageSelect = (e) => {
   --easy-table-body-row-hover-font-color: var(--bb-color-gray-600);
   --easy-table-body-row-hover-background-color: var(--bb-color-gray-50);
 
-  --easy-table-body-item-padding: 10px 15px;
+  --easy-table-body-item-padding: 16px 24px;
 
   --easy-table-footer-background-color: #2d3a4f;
   --easy-table-footer-font-color: #c0c7d2;

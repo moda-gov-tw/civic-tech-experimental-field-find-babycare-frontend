@@ -1,24 +1,45 @@
 
 <script setup>
-import { ref } from 'vue';
 import router from '../../router/index.js';
 
 import Step from '../../components/NavigationStep.vue'
 import MainTitle from '../../components/MainTitle.vue'
-
+import ToolTip from '../../components/form/ToolTip.vue'
 import SelectInput from '../../components/form/SelectInput.vue'
 import RadioInput from '../../components/form/RadioInput.vue'
 import NormalButton from '../../components/NormalButton.vue';
+import FullButton from '../../components/FullButton.vue';
+
+import daycares from '@/api/mocks/daycares.json';
+
+import { useApplicationDetailStore } from '../../stores/applicationDetail';
+import { storeToRefs } from 'pinia';
+
+const applicationDetailStore = useApplicationDetailStore();
+const {
+  applicantDaycares,
+} = storeToRefs(applicationDetailStore);
+
+const {  
+  addDayCareApplication,
+  removeDayCareApplication
+} = applicationDetailStore;
+
+const daycaresOptions = daycares.records
+  .filter(daycare => daycare.fields.type === '公設民營')
+  .map(daycare => daycare.fields.daycare_name);
 
 
-import { i18n } from '@/i18n.js' 
+function getLocation(daycare_name) {
+  const daycare = daycares.records.find(d => d.fields.daycare_name === daycare_name);
+  return daycare ? daycare.fields.location : null;
+}
 
 
 const handleClick = (step) => {
   if(step==='prev') router.push({ name: 'apply.step1' })
   if(step==='next') router.push({ name: 'apply.step3' })
 }
-
 
 
 </script>
@@ -44,27 +65,72 @@ const handleClick = (step) => {
       />
     </div>
 
-    <!-- 公托選擇	 -->
-    <SelectInput
-      v-model="sex"
-      label="公托"
-      :options="[i18n.global.t('options.male'), i18n.global.t('options.female') ]"
-      placeholder="請選擇欲報名之公托"
-    />
+    <template v-for="(daycare, i) in applicantDaycares" :key="`daycare-${i}`">
 
-    <!-- 是否同住	 -->
-    <span> {{ $t('input.daycare_reserved_spot') }}</span>
-    <RadioInput
-      v-model="sameHousehold"
-      :label="'是否為社區別活動中心居民之嬰幼兒'"
-      :options="[i18n.global.t('options.yes'), i18n.global.t('options.no')]"
-    />
+      <div 
+        v-if="applicantDaycares.length > 1" 
+        class="flex justify-between"
+      >
+        <span   
+          class="flex" 
+          :class="$style.orderLabel
+        ">
+          公托 {{i+1}}
+        </span>
+        <a 
+          :class="$style.removeButton"
+          v-if="applicantDaycares.length > 1"
+          @click="removeDayCareApplication(i)"
+        >刪除此公托</a>
+      </div>
 
-    <RadioInput
-      v-model="sameHousehold"
-      :label="'是否為公托現職員工之子女'"
-      :options="[i18n.global.t('options.yes'), i18n.global.t('options.no')]"
-    />
+      <!-- 公托選擇	 -->
+      <SelectInput
+        v-model="daycare.name"
+        label="公托"
+        :options="daycaresOptions"
+        placeholder="請選擇欲報名之公托"
+      />
+
+      <!-- 您是否有回饋名額資格？ -->
+      <div class="flex">
+        {{ $t('input.daycare_reserved_spot') }} 
+        <ToolTip
+          :text="$t('helptip.daycare_reserved_spot')"
+        /> 
+      </div>
+
+      <RadioInput
+        v-if="getLocation(daycare.name) === '社會住宅' || getLocation(daycare.name) === '社區活動中心'"
+        v-model="daycare.withPublicReservedSpot"
+        returnBoolean
+        :label="`是否為此 ${getLocation(daycare.name)} 設籍居民之嬰幼兒`"
+        :options="[$t('options.yes'), $t('options.no')]"
+      />
+
+      <RadioInput
+        v-if="getLocation(daycare.name) === '學校'"
+        v-model="daycare.withSchoolReservedSpot"
+        returnBoolean
+        :label="`是否為此 ${getLocation(daycare.name)} 職員之嬰幼兒`"
+        :options="[$t('options.yes'), $t('options.no')]"
+      />
+      
+      <RadioInput
+        v-model="daycare.withEmployeeReservedSpot"
+        label="是否為公托現職員工之子女"
+        returnBoolean
+        :options="[$t('options.yes'), $t('options.no')]"
+      />
+
+        <FullButton 
+          isAddButton
+          v-if="i == applicantDaycares.length-1"
+          :text="$t('button.add_daycare')" 
+          @click="addDayCareApplication"
+        />
+
+    </template>
     
     
 
@@ -101,6 +167,7 @@ const handleClick = (step) => {
 }
 
 .navigation {
+  margin-top: 20px;
   width: 750px;
 }
 
@@ -108,6 +175,23 @@ const handleClick = (step) => {
   width: 750px;
   background: var(--gray-gray-50, #F8F8F8);
 }
+
+
+.removeButton{
+  cursor :pointer; 
+}
+
+.removeButton:hover{
+  text-decoration: none;
+}
+
+.orderLabel{
+  width: fit-content;
+  padding:4px 8px;
+  background-color:#9CA3AF ;
+  color:white
+}
+
 
 .title {
   color: #000;

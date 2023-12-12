@@ -1,5 +1,6 @@
 <script setup>
 defineProps({
+
   text: {
     type: String,
     required: true,
@@ -7,6 +8,10 @@ defineProps({
   divider: {
     type: Boolean,
     default: false,
+  },
+  modelValue: {
+    type: Boolean,
+    default: false
   },
   align: {
     type: String,
@@ -16,6 +21,10 @@ defineProps({
     }
   },
 });
+
+defineEmits([
+  'update:modelValue',
+]);
 </script>
 
 <template>
@@ -39,9 +48,9 @@ defineProps({
       :id="uid"
       type="checkbox"
       :class="$style.input"
-      :checked="value"
+      :checked="modelValue"
       :disabled="disabled"
-      @change="$emit('update:value', $event.target.checked)"/>
+      @change="$emit('update:modelValue', $event.target.checked)"/>
 
     <div :class="[
       $style.checkBoxIndicator, 
@@ -91,7 +100,6 @@ defineProps({
 .label {
   float: left;
   font-size: 14px;
-  font-weight: bold;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;

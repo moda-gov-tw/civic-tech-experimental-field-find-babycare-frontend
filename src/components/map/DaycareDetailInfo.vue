@@ -1,5 +1,5 @@
 <template>
-  <div class="my-5">
+  <div>
     <div :class="$style.title" class="mb-3">
       {{ title }}
     </div>
@@ -25,6 +25,7 @@
 <script setup>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import isEmpty from 'lodash.isempty';
 const { t } = useI18n();
 
 const props = defineProps({
@@ -47,7 +48,7 @@ const infoList = computed(() => {
     { title: 'operation_hours', content: 'operationHours' }, // 收托時間
     { title: 'fee', content: 'fee' }, // 每月平均收費總額
   ]
-  .filter(info => !!props.daycareInfo[info.content])
+  .filter(info => !isEmpty(props.daycareInfo[info.content]))
   .map(info => ({
     id: daycareId,
     title: t(`daycare.${ info.title }`),

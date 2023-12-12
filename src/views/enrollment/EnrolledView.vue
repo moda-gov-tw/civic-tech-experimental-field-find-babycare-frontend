@@ -8,22 +8,24 @@
       hide-footer
       table-class-name="customize-table"
       :headers="headers"
-      :items="applicants"
+      :items="enrolledData"
       :rows-per-page="rowsPerPage"
       @click-row="showRow"
     />
     <TablePagination
-      v-if="applicants.length > rowsPerPage"
+      v-if="enrolledData.length > rowsPerPage"
       :table-ref="dataTable"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import BodyText from '../../components/BodyText.vue';
 import NormalTabs from '../../components/NormalTabs.vue';
 import TablePagination from '../../components/TablePagination.vue';
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 
 // store
 import { useEnrollmentStore } from '../../stores/enrollment.js';
@@ -40,17 +42,17 @@ const rowsPerPage = ref(10);
 const store = useEnrollmentStore();
 const {
   tabsData,
-  applicants,
+  enrolledData,
 } = storeToRefs(store);
 const { updateActiveTab } = store;
 
-const headers = [
-  { text: '幼兒編號', value: 'id' },
-  { text: '幼兒姓名', value: 'infantName', sortable: true },
-  { text: '出生年月日', value: 'birthdate', sortable: true },
-  { text: '年齡', value: 'age', sortable: true },
-  { text: '入托日期', value: 'checkInDate', sortable: true },
-];
+const headers = computed(() => [
+  { text: t('input.infant_number'), value: 'infantId' }, // 幼兒編號
+  { text: t('input.infant_name'), value: 'infantName', sortable: true }, // 幼兒姓名
+  { text: t('input.birthdate'), value: 'birthdate', sortable: true }, // 出生年月日
+  { text: t('input.age'), value: 'age', sortable: true }, // 年齡
+  { text: t('input.enroll_date'), value: 'enrollDate', sortable: true }, // 入托日期
+]);
 
 const dataTable = ref(); // $ref EasyDataTable template
 

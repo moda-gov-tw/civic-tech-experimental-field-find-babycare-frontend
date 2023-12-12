@@ -7,18 +7,24 @@
     @close="$emit('close')"
   >
     <template #content>
-      <div :class="$style.daycareDetail">
+      <div :class="$style.daycareDetail" class="grid gap-6">
         <DaycareDetailHeader :daycare-info="daycareInfo" />
         <img
-          class="my-6"
-          :src="daycareInfo.imageUrl"
+          width="358"
+          height="190"
+          v-if="daycareInfo.daycarePhotoUrl"
+          :src="daycareInfo.daycarePhotoUrl"
           :alt="daycareInfo.name"
+          :class="$style.photo"
         >
-        <div class="flex gap-3">
-          <RouterLink :to="{ name: 'waitlist', params: { daycareID: daycareInfo.id } }">
+        <div v-if="daycareInfo.currentWaitlistCount || daycareInfo.facebookUrl" class="flex gap-3">
+          <RouterLink
+            v-if="daycareInfo.currentWaitlistCount"
+            :to="{ name: 'waitlist', params: { daycareID: daycareInfo.id } }"
+          >
             <NormalButton class="flex-auto" :text="$t('button.see_waitlist')" isGhost />
           </RouterLink>
-          <a :href="daycareInfo.facebook" target="_blank">
+          <a v-if="daycareInfo.facebookUrl" :href="daycareInfo.facebookUrl" target="_blank">
             <NormalButton class="flex-auto" :text="$t('button.facebook')" isGhost />
           </a>
         </div>
@@ -39,8 +45,8 @@ import NormalButton from '../../components/NormalButton.vue';
 
 const wrapper = computed(() => {
   return (window.innerWidth >= 768)
-    ? defineAsyncComponent(() => import('./SidePanel.vue'))
-    : defineAsyncComponent(() => import('./BottomSheet.vue'));
+    ? defineAsyncComponent(() => import('./SidePanel.vue')) // desktop
+    : defineAsyncComponent(() => import('./BottomSheet.vue')); // mobile
 });
 
 defineProps({
@@ -61,7 +67,17 @@ defineEmits([
 
 <style module>
 .daycareDetail {
+  display: grid;
+  gap: 6;
   padding: 24px 16px;
   overflow: auto;
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+}
+
+.photo {
+  object-fit: contain;
 }
 </style>
