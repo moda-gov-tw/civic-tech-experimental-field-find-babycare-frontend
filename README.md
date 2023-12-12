@@ -47,7 +47,7 @@ pnpm lint
 
 https://www.figma.com/file/bCUyDf8lZ2lVACZKJ0Bxvl/Find-Babycare-%E5%AF%B6%E5%AF%B6%E6%89%BE%E5%85%AC%E6%89%98?type=design&node-id=4648%3A3228&mode=design&t=IuJD19H0UVcVWS3N-1
 
-### How to Automatically Switch to the Correct Version of Node.js Based on Project 如何自動切換到正確版本的 Node.js 
+### How to Automatically Switch to the Correct Version of Node.js Based on Project  如何自動切換到正確版本的 Node.js 
 
 If you'd rather not manually use NVM, you can utilize .nvmrc for automatic switching.
 
