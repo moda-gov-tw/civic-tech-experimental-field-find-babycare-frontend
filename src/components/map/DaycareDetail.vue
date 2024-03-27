@@ -6,7 +6,7 @@
     @toggle="$emit('toggle')"
     @close="$emit('close')"
   >
-    <template #content>
+    <template #body>
       <div :class="$style.daycareDetail" class="grid gap-6">
         <DaycareDetailHeader :daycare-info="daycareInfo" />
         <img

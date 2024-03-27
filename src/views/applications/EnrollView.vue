@@ -5,7 +5,7 @@
      <EnrollActionBar
       :text="$t('title.registar_or_not')"
      /> 
-    <div :class="$style.section">
+    <div :class="[$style.section, $style.detail]">
       <ApplicantList
         :key="acceptanceInfo.title"
         :main-title="acceptanceInfo.title"
@@ -15,7 +15,7 @@
     </div>
 
     <div 
-      class="px-5 py-5  w-1/4 ">
+      class="lg:px-5 lg:py-5  lg:w-1/4 ">
         <FullButton 
           class="mb-4"
           :text="$t('button.confirm_acceptance')"
@@ -76,12 +76,16 @@ const acceptanceInfo = {
   }
 }
 
-
-.section{
-  width: 750px;
-  padding: 40px 0px;
-  margin-top:20px;
-  margin-bottom:10px;
+.detail {
+  margin-top:40px;
+  margin-bottom:20px;
+}
+.section {
+  width:100%;
+  min-width: 350px;
+  @media (min-width: 960px) {
+    width: 750px;    
+  }
 }
 
 

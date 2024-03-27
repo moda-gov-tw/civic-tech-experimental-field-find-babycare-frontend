@@ -59,14 +59,14 @@ const handleClick = () => {
 <div :class="$style.page" class="flex flex-col p-7  items-center justify-center">
   <!-- 圖標容器 -->
 
-  <div :class="$style.navigation">
+  <div :class="[$style.navigation, $style.section]">
     <Step
       currentStep="01"
     />
   </div>
 
   <!-- 申請人資料  -->
-  <div :class="$style.applicantInfo" class="p-7 grid gap-6 ">
+  <div :class="[$style.section , $style.applicantInfoBg]" class="p-7 grid gap-6 ">
 
     <div class="grid gap-7 w-full mb-5">
       <MainTitle
@@ -161,7 +161,7 @@ const handleClick = () => {
   </div>
 
   <!-- 幼兒資料  -->
-  <div :class="$style.applicantInfo" class="mt-7 p-7 grid gap-6">
+  <div :class="[$style.section , $style.applicantInfoBg]" class="mt-7 p-7 grid gap-6">
 
     <div class="grid gap-7 w-full mb-5">
       <MainTitle :text="$t('title.infant_info')"  divider />
@@ -225,6 +225,7 @@ const handleClick = () => {
       <!-- 戶籍地址	 -->
       <RadioInput
         v-model="infant.isSameAddress"
+        wrapText
         :label="t('input.resident_address')"
         :options="[t('options.same_address'), t('options.different_address')]"
       />
@@ -347,7 +348,7 @@ const handleClick = () => {
   </div>
 
   <!-- 幼兒資料  -->
-  <div :class="$style.applicantInfo" class="mt-7 p-7 grid gap-6 ">
+  <div :class="[$style.section , $style.applicantInfoBg]" class="mt-7 p-7 grid gap-6 ">
 
     <div class="grid gap-7 w-full mb-5">
       <MainTitle :text="'其他聯絡人'" divider />
@@ -410,7 +411,7 @@ const handleClick = () => {
   </div>
 
   <div
-    :class="$style.bottom"
+    :class="$style.section"
     class="px-5 py-5 flex justify-end gap-5"
   >
     <NormalButton
@@ -431,19 +432,23 @@ const handleClick = () => {
   }
 }
 
-.navigation {
-  margin-top: 20px;
-  width: 750px;
+.section {
+  width:100%;
+  min-width: 350px;
+  @media (min-width: 960px) {
+    width: 750px;    
+  }
 }
 
-.applicantInfo {
-  width: 750px;
+.navigation {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.applicantInfoBg {
   background: var(--gray-gray-50, #F8F8F8);
 }
 
-.bottom {
-  width: 750px;
-}
 
 .removeButton{
   cursor :pointer; 

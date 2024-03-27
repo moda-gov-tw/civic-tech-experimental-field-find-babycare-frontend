@@ -1,7 +1,7 @@
 
 <template>
   <div :class="$style.page" class="flex flex-col p-7  items-center justify-center">
-    <div :class="$style.navigation">
+    <div :class="[$style.section, $style.navigation]">
       <Step
         currentStep="04"
       />
@@ -41,7 +41,7 @@
     </div>
 
     <div 
-      :class="$style.bottom" 
+      :class="$style.section" 
       class="px-5 py-5 flex justify-end gap-5">
       <NormalButton
         @click="handleClick('prev')"
@@ -182,20 +182,21 @@ const documentUpload = {
   }
 }
 
+.section {
+  width:100%;
+  min-width: 350px;
+  margin-bottom:20px;
+  @media (min-width: 960px) {
+    width: 750px;    
+  }
+  
+}
+
 .navigation {
   margin-top: 20px;
-  width: 750px;
+  margin-bottom: 20px;
 }
 
-.section{
-  width: 750px;
-  margin-bottom:20px;
-}
-
-
-.bottom {
-  width: 750px;
-}
 
 
 </style>

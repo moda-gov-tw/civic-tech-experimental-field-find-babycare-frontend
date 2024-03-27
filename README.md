@@ -1,56 +1,55 @@
 # find-babycare-frontend
+
 This template should help get you started developing with Vue 3 in Vite.
 
-這個模板應該能幫助你開始在 Vite 中使用 Vue 3 進行開發
-
-## Prerequisites 先備條件
+## Prerequisites
 
 - node.js > 18
 - [pnpm](https://pnpm.io/)
 
-## Recommended IDE Setup 推薦的IDE配置
+## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration 自訂配置
+## Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup 安裝準備
+## Project Setup
 
 ```sh
 nvm use 18
 pnpm install
 ```
 
-### Compile and Hot-Reload for Development 編譯及熱重載開發環境
+### Compile and Hot-Reload for Development
 
 ```sh
 pnpm i18n:build # Generate i18n files. Run this script every time after you update i18n.json
 pnpm dev
 ```
 
-### Compile and Minify for Production 編譯及壓縮正式環境
+### Compile and Minify for Production
 
 ```sh
 pnpm build
 ```
 
-### Lint with [ESLint](https://eslint.org/) 檢查工具
+### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 pnpm lint
 ```
 
-### Design 設計
+### Design
 
 https://www.figma.com/file/bCUyDf8lZ2lVACZKJ0Bxvl/Find-Babycare-%E5%AF%B6%E5%AF%B6%E6%89%BE%E5%85%AC%E6%89%98?type=design&node-id=4648%3A3228&mode=design&t=IuJD19H0UVcVWS3N-1
 
-### How to Automatically Switch to the Correct Version of Node.js Based on Project  如何自動切換到正確版本的 Node.js 
+### How to Automatically Switch to the Correct Version of Node.js Based on Project
 
 If you'd rather not manually use NVM, you can utilize .nvmrc for automatic switching.
 
-### How to Set Up 如何安裝
+### How to Set Up
 
 Open your terminal and enter `vi ~/.zshrc` (please note that everyone's path may be different). Then, paste the following script on the last line:
 

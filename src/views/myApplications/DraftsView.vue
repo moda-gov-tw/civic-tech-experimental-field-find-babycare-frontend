@@ -1,20 +1,34 @@
 <template>
-  <div class="grid gap-5">
+  <div
+    class="grid gap-5"
+    :class="[
+      isLargeScreen && 'gap-5',
+    ]"
+  >
     <NormalTabs :tabs="tabsData" @update:active-tab="updateActiveTab" />
-    <BodyText :text="$t('message.my_applications')" />
-    <EasyDataTable
-      ref="dataTable"
-      hide-footer
-      table-class-name="customize-table"
-      :headers="headers"
-      :items="drafts"
-      :rows-per-page="rowsPerPage"
-      @click-row="showRow"
-    />
-    <TablePagination
-      v-if="drafts.length > rowsPerPage"
-      :table-ref="dataTable"
-    />
+    <template v-if="isLargeScreen">
+      <BodyText :text="$t('message.my_applications')" />
+      <EasyDataTable
+        ref="dataTable"
+        hide-footer
+        table-class-name="customize-table"
+        :headers="headers"
+        :items="drafts"
+        :rows-per-page="rowsPerPage"
+        @click-row="showRow"
+      />
+      <TablePagination
+        v-if="drafts.length > rowsPerPage"
+        :table-ref="dataTable"
+      />
+    </template>
+    <template v-else>
+      <StackedLists
+        :data="stackListData"
+        :has-arrow="true"
+        @click:stack-list="handleClick"
+      />
+    </template>
   </div>
 </template>
 
@@ -24,6 +38,10 @@ import { useI18n } from 'vue-i18n';
 import BodyText from '../../components/BodyText.vue';
 import NormalTabs from '../../components/NormalTabs.vue';
 import TablePagination from '../../components/TablePagination.vue';
+import StackedLists from '../../components/StackedLists.vue';
+import { useMediaQuery } from '@vueuse/core';
+
+const isLargeScreen = useMediaQuery('(min-width: 768px)');
 
 import { useMyApplicationsStore } from '../../stores/myApplications.js';
 import { storeToRefs } from 'pinia';
@@ -55,6 +73,40 @@ const showRow = (item) => {
     },
   })
 };
+
+const stackListData = computed(() => {
+  return drafts.value.map(item => {
+    const idObject = {
+      id: item.id,
+    };
+
+    const attributes = headers.value.map(mapping => {
+      let value = item[mapping.value];
+
+      if(Array.isArray(value)) {
+        value = value.join(', ');
+      }
+
+      return {
+        title: mapping.text,
+        value: value
+      };
+    });
+
+    return [idObject, ...attributes];
+  });
+});
+
+function handleClick(payload) {
+  const id = payload[0].id;
+
+  router.push({
+    name: 'apply.step1',
+    params: {
+      applicationID: id,
+    },
+  })
+}
 
 onMounted(() => {
   updateActiveTab(0);

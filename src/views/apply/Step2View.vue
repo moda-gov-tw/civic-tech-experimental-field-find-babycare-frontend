@@ -49,14 +49,14 @@ const handleClick = (step) => {
 <div :class="$style.page" class="flex flex-col p-7  items-center justify-center">
   <!-- 圖標容器 -->
 
-  <div :class="$style.navigation">
+  <div :class="[$style.section, $style.navigation]">
     <Step
       currentStep="02"
     />
   </div>
 
   <!-- 申請人資料  -->
-  <div :class="$style.applicantInfo" class="p-7 grid gap-6 ">
+  <div :class="[$style.section, $style.applicantInfo]" class="p-7 grid gap-6 ">
 
     <div class="grid gap-7 w-full mb-5">
       <MainTitle 
@@ -137,7 +137,7 @@ const handleClick = (step) => {
   </div>
 
   <div
-    :class="$style.bottom" 
+    :class="[$style.section, $style.bottom]"
     class="px-5 py-5 flex justify-end gap-5">
     <NormalButton 
       @click="handleClick('prev')"
@@ -162,17 +162,20 @@ const handleClick = (step) => {
   }
 }
 
-.bottom {
-  width: 750px;
-}
-
 .navigation {
   margin-top: 20px;
-  width: 750px;
+  margin-bottom: 20px;
+}
+
+.section {
+  width:100%;
+  min-width: 350px;
+  @media (min-width: 960px) {
+    width: 750px;    
+  }
 }
 
 .applicantInfo {
-  width: 750px;
   background: var(--gray-gray-50, #F8F8F8);
 }
 

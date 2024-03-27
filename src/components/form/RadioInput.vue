@@ -27,6 +27,10 @@ const props = defineProps({
   toolTipText: {
     type: String,
     required: false
+  },
+  wrapText: {
+    type: Boolean,
+    required: false
   }
 })
 
@@ -52,10 +56,14 @@ defineEmits(
   
       <!-- radio -->
       <fieldset class="ml-2">
-        <div class="space-y-4 sm:flex sm:items-center sm:space-x-6 sm:space-y-0">
-          <div v-for="(option,i ) in options" :key="option" class="flex items-center ml-4">
+        <div :class="[
+          'items-center',
+          !wrapText && 'flex',
+          wrapText && 'lg:flex',
+          ]"
+          >
+          <div v-for="(option,i ) in options" :key="option" class="flex items-center ml-4 mb-3">
 
-                    
             <!-- radio button -->
             <input
               class="w-4 h-4 accent-primary"

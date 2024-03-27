@@ -6,7 +6,7 @@
       :text="$t('title.forfeit')"
     /> 
 
-  <div :class="$style.section" class="p-7 grid gap-6 ">
+  <div :class="[$style.section, $style.detail]" class="p-7 grid gap-6 ">
       <MainTitle 
         :text="acceptanceInfo.title" 
         divider 
@@ -20,6 +20,7 @@
 
       <RadioInput
         v-model="forfeitReason"
+        :wrapText="true"
         :label="$t('input.forfeit_reason')"
         :options="[$t('options.already_somewhere_else'), $t('options.other')]"
       />
@@ -44,7 +45,7 @@
   </div>
 
   <div
-    :class="$style.bottom" 
+    :class="$style.section" 
     class="px-5 py-5 flex justify-end gap-5">
     <NormalButton 
       :text="$t('button.previous_step')" isGhost />
@@ -103,20 +104,22 @@ const acceptanceInfo = {
   }
 }
 
-.section {
-  margin-top:60px;
-  width: 750px;
+.detail{
+  margin-top: 60px;
   background: var(--gray-gray-50, #F8F8F8);
 }
+
+.section {
+  width:100%;
+  min-width: 350px;
+  @media (min-width: 960px) {
+    width: 750px;    
+  }
+}
+
 
 .divider {
   height: 1px;
   background: var(--bb-color-gray-200);
 }
-
-.bottom {
-  width: 750px;
-}
-
-
 </style>

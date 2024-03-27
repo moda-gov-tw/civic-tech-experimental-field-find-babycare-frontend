@@ -16,6 +16,7 @@
     "@headlessui/vue": "^1.7.16",
     "@heroicons/vue": "^2.0.18",
     "@vuepic/vue-datepicker": "^7.2.2",
+    "@vueuse/core": "^10.7.0",
     "airtable": "^0.12.2",
     "lodash.find": "^4.6.0",
     "lodash.findindex": "^4.6.0",
@@ -41,6 +42,6 @@
     "postcss-preset-env": "^9.2.0",
     "prettier": "^3.0.3",
     "tailwindcss": "^3.3.5",
-    "vite": "^4.4.11"
+    "vite": "^4.5.2"
   }
 }

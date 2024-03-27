@@ -245,8 +245,8 @@
       "En": "One of the parents/guardiens of infant(s) is a resident of Taichung City."
     },
     "consent_3": {
-      "Zh": "我確認最近一年家庭綜合所得淨額在121萬元以下（經稅捐稽徵機關核定綜合所得稅未達20%）",
-      "En": "The Net Consolidated Income of the family is less than 1,210,000 NTD. (The income tax bracket is lower than 20%)"
+      "Zh": "我確認最近一年經稅捐稽徵機關核定綜合所得稅級距未達20%。",
+      "En": "My income tax bracket is lower than 20%."
     },
     "applicant_name": {
       "Zh": "申請人姓名",

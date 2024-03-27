@@ -19,7 +19,7 @@
       class="p-7"
       :class="$style.contentScroller"
     >
-      <slot name="content" />
+      <slot name="body" />
     </div>
   </div>
 </template>

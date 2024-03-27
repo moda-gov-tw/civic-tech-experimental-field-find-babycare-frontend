@@ -45,13 +45,15 @@ const {
 <template>
 <div :class="$style.page" class="flex flex-col p-7  items-center justify-center">
 
-  <div :class="$style.navigation">
+  <div :class="[$style.section, $style.navigation]">
     <Step
       currentStep="03"
     />
   </div>
 
-  <div v-for="(document ,key) in documentsToUploads" :key="key" class="p-7 grid gap-6" > 
+  <div v-for="(document ,key) in documentsToUploads" :key="key" class="p-4 grid gap-6" 
+    :class="$style.section"
+  > 
 
     <div class="flex">
      <span :class="$style.instructionTitle">{{ $t(document['i18Name']) }}</span>
@@ -63,7 +65,8 @@ const {
     </a>
     </div>
 
-    <div :class="$style.instructionDetail" class="p-7">
+    <div :class="$style.instructionDetail"
+    class="p-4">
       <div>
         請確保資料符合以下規範：<br/>
         <span v-for="(description,key) in document.descriptions" :key="key">
@@ -79,7 +82,7 @@ const {
   <DocumentOverlay/>
 
   <div
-    :class="$style.bottom" 
+    :class="[$style.section, $style.bottom]"
     class="px-5 py-5 flex justify-end gap-5">
     <NormalButton 
       @click="handleClick('prev')"
@@ -103,6 +106,15 @@ const {
     background-color: transparent;
   }
 }
+
+.section {
+  width:100%;
+  min-width: 350px;
+  @media (min-width: 960px) {
+    width: 750px;    
+  }
+}
+
 
 .instructionTitle {
   color: #374151;
@@ -131,12 +143,10 @@ const {
 
 .navigation {
   margin-top: 20px;
-  width: 750px;
+  margin-bottom: 20px;
 }
 
-
 .instructionDetail {
-  width: 750px;
   background: var(--gray-gray-50, #F8F8F8);
 }
 

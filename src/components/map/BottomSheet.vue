@@ -10,7 +10,7 @@
     <div ref="fixedWrapper" class="bottom-sheet__fixed-wrapper">
       <div class="bottom-sheet__top-spacer" @click="$emit('close')" />
       <div ref="sheet" class="bottom-sheet__sheet">
-        <slot name="content">
+        <slot>
           <BottomSheetContent ref="content">
             <template #below-header>
               <slot name="below-header" />
@@ -283,6 +283,9 @@ export default {
         bottomSheet.removeEventListener('touchend', onTouchEnd);
       };
     },
+  },
+  beforeUnmount() {
+    this.onClose();
   },
 }
 </script>

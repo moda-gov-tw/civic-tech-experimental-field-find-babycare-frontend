@@ -1,26 +1,41 @@
 <template>
-  <div class="px-8 py-7 grid gap-7">
+  <div
+    class="px-8 py-7 grid"
+    :class="[
+      isLargeScreen && 'gap-7',
+    ]"
+  >
     <MainTitle :text="$t('title.waitlist_title', { daycareName })" divider />
-    <div class="grid gap-5">
-      <div
-        v-if="waitlist.length === 0"
-        class="grid gap-6 justify-center items-center text-center p-8"
-      >
-        <IconEmptyWaitlist />
-        <span class="$style.emptyTips">
-          {{ $t('message.my_applications_blank') }}
-        </span>
-      </div>
-      <EasyDataTable
-        v-else
-        ref="dataTable"
-        hide-footer
-        table-class-name="customize-table" :headers="headers"
-        :items="waitlist"
-        :rows-per-page="rowsPerPage"
-        @click-row="showRow"
-      />
-      <TablePagination v-if="waitlist.length > rowsPerPage" :table-ref="dataTable" />
+    <div
+      class="grid"
+      :class="[
+        isLargeScreen && 'gap-5',
+      ]"
+    >
+      <!-- desktop -->
+      <template v-if="isLargeScreen">
+        <div
+          v-if="waitlist.length === 0"
+          class="grid gap-6 justify-center items-center text-center p-8"
+        >
+          <IconEmptyWaitlist />
+          <span class="$style.emptyTips">
+            {{ $t('message.my_applications_blank') }}
+          </span>
+        </div>
+        <EasyDataTable
+          v-else
+          ref="dataTable"
+          hide-footer
+          table-class-name="customize-table" :headers="headers"
+          :items="waitlist"
+          :rows-per-page="rowsPerPage"
+          @click-row="showRow"
+        />
+        <TablePagination v-if="waitlist.length > rowsPerPage" :table-ref="dataTable" />
+      </template>
+      <!-- mobile -->
+      <StackedLists v-else :data="stackListData" />
     </div>
   </div>
 </template>
@@ -32,8 +47,12 @@ import find from 'lodash.find';
 import MainTitle from '../components/MainTitle.vue';
 import TablePagination from '../components/TablePagination.vue';
 import IconEmptyWaitlist from '../components/icons/IconEmptyWaitlist.vue';
+import StackedLists from '../components/StackedLists.vue';
 import { waitlist as waitlistData } from '../api/applications.js';
 import { daycares as daycaresData } from '../api/daycare.js';
+import { useMediaQuery } from '@vueuse/core';
+
+const isLargeScreen = useMediaQuery('(min-width: 768px)');
 
 const { t } = useI18n();
 
@@ -81,6 +100,24 @@ const headers = computed(() => [
   { text: t('input.submission_time'), value: 'submissionDate', sortable: true }, //報名時間
   { text: t('input.identities'), value: 'identities', sortable: true }, //身份資格
 ]);
+
+const stackListData = computed(() => {
+  return waitlist.map(item => {
+    return headers.value.map(mapping => {
+      let value = item[mapping.value];
+
+      if(Array.isArray(value)) {
+        value = value.join(', ');
+      }
+
+      return {
+        title: mapping.text,
+        value: value
+      };
+    });
+  });
+});
+
 </script>
 
 <style module>

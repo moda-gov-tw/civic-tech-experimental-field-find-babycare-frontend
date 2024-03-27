@@ -4,7 +4,6 @@
     :class="$style.actionBar"
   >
     <span
-      class="hidden md:block"
       :class="$style.actionBarTitle"
     >
     {{ text }}

@@ -4,7 +4,6 @@
     :class="$style.actionBar"
   >
     <span
-      class="hidden md:block"
       :class="$style.actionBarTitle"
     >
       {{ $t('title.daycare_application')}}
@@ -45,8 +44,8 @@
 }
 
 .actionButton {
-  padding: 5px 16px;
-  margin-right :16px;
+  padding: 6px 16px;
+  margin-right :10px;
   border-radius: 6px;
   border: 1px solid var(--white, #FFF);
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);

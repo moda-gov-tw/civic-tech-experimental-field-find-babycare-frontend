@@ -29,8 +29,10 @@ defineEmits([
 
 <template>
 
-<div :class="[
+<div 
+  :class="[
     $style.checkBoxRadioInput,
+    divider && $style.divider,
     disabled && $style.disabled,
     $style[align],
     $style[type]
@@ -65,10 +67,6 @@ defineEmits([
   
   </label>
 
-  <div>
-    <div v-if="divider" :class="$style.divider"></div>
-  </div>
-
 </div>
 
 
@@ -77,9 +75,8 @@ defineEmits([
 
 <style module>
 .divider {
-  margin-top: 35px;
-  height: 1px;
-  background: var(--bb-color-gray-200);
+  padding-bottom:20px;
+  border-bottom: 1px solid var(--bb-color-gray-200);;
 }
 
 .checkBoxRadioInput:after {

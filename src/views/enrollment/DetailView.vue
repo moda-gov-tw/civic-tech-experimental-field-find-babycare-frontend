@@ -141,19 +141,19 @@ const detailData = {
       ].filter(d => !isEmpty(d.text)),
     },
     {
-      title: '上傳文件',
+      title: t('title.document_upload'), // 文件上傳
       type: 'file',
       detailList: [
         {
-          title: '戶口名簿或戶籍謄本',
+          title: t('document.X'), // 戶口名簿或戶籍謄本
           src: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
         },
         {
-          title: '綜合所得稅核定通知書',
+          title: t('document.Y'), // 綜合所得稅核定通知書
           src: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
         },
         {
-          title: '弱勢家庭證明',
+          title: t('document.B'), // 弱勢家庭證明
           src: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
         },
       ],

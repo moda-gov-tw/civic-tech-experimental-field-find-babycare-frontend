@@ -17,11 +17,13 @@ const handleClick = () => {
 <!-- 外層容器 -->
 <div :class="$style.page" class="flex flex-col p-7  items-center justify-center">
   <!-- 圖標容器 -->
-  <div :class="$style.section" class="grid gap-7 w-full mb-5">
+  <div :class="[
+    $style.section,
+    $style.sectionMargin
+  ]" class="grid gap-7 w-full mb-5 mt-2">
     <MainTitle :text="'開始公托報名'" divider />
   </div>
-
-  <div :class="$style.instruction" class="flex lg:flex-row flex-col p-5 justify-center ">
+  <div :class="[$style.section, $style.instructionBg]" class="flex lg:flex-row flex-col p-5 justify-center ">
 
     <div class="lg:w-2/5  p-7 flex items-center justify-center " >
       <IconWritingApplication/>
@@ -54,7 +56,7 @@ const handleClick = () => {
   </div>
 
 
-  <div :class="$style.section" class="flex flex-col p-7 items-center justify-center">
+  <div :class="$style.section" class="flex flex-col p-3 items-center justify-center">
     <div class="mt-4 p-2 grid gap-7 w-full">
       <CheckBoxField
         :text="$t('input.consent_1')"
@@ -76,7 +78,7 @@ const handleClick = () => {
 
 
     <div
-      :class="$style.bottom" 
+      :class="$style.section" 
       class="px-5 py-5 flex justify-end gap-5">
       <NormalButton 
         @click="handleClick('next')"
@@ -97,17 +99,20 @@ const handleClick = () => {
   }
 }
 
-.section {
+.sectionMargin {
   margin-top:50px;
-  width: 750px;
 }
 
-.bottom {
-  width: 750px;
+.section {
+  background-color: transparent;
+  width:100%;
+  min-width: 350px;
+  @media (min-width: 960px) {
+    width: 750px;    
+  }
 }
 
-.instruction {
-  width: 750px;
+.instructionBg {
   background: var(--bb-color-gray-50);
 }
 
